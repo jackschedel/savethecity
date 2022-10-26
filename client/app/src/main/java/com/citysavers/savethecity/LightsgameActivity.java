@@ -45,7 +45,7 @@ public class LightsgameActivity extends AppCompatActivity {
 
     private boolean light1state = false;
     private boolean light2state = false;
-    private Boolean[] lights = new Boolean[7];
+    private Boolean[] lights = new Boolean[8];
 
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
