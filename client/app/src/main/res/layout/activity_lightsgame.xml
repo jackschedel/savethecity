@@ -15,6 +15,7 @@
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
+
     <TextView
         android:id="@+id/fullscreen_content"
         android:layout_width="wrap_content"
@@ -29,9 +30,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        tools:ignore="UselessParent" >
+        tools:ignore="UselessParent">
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/lights_game_new_bckgrd" />
 
     <TextView
         android:id="@+id/timer"
@@ -43,19 +50,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/background"
+    <Button
+        android:id="@+id/upLampB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/Lights_Game_BCKGRD"
+        android:alpha="0"
+        android:onClick="upLampB_onClick"
+        android:text="Button"
+        android:translationX="83dp"
+        android:translationY="185dp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
+
+    <Button
+        android:id="@+id/botLampB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        android:onClick="botLampB_onClick"
+        android:text="But"
+        android:translationX="300dp"
+        android:translationY="520dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-1dp" />
 
     <ImageView
         android:id="@+id/upLamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/Lights_Game_lowerLAMP"
+        app:srcCompat="@drawable/lights_game_upper_lamp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 
@@ -63,26 +86,8 @@
         android:id="@+id/botLamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/Lights_Game_upperLamp"
+        app:srcCompat="@drawable/lights_game_lower_lamp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
-
-    <Button
-        android:id="@+id/upLampB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="upLampB_onClick"
-        android:text="Button"
-        tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="184dp" />
-
-    <Button
-        android:id="@+id/botLampB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="botLampB_onClick"
-        android:text="But"
-        tools:layout_editor_absoluteX="297dp"
-        tools:layout_editor_absoluteY="523dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

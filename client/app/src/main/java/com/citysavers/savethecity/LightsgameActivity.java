@@ -219,11 +219,11 @@ public class LightsgameActivity extends AppCompatActivity {
         ImageView upLamp = (ImageView)findViewById(R.id.upLamp);
         if(lights[0]){
             //If light was on, turn off
-            upLamp.setAlpha(0);
+            upLamp.setImageAlpha(0);
             lights[0] = false;
         }else {
             //If light was off, turn on
-            upLamp.setAlpha(1);
+            upLamp.setImageAlpha(255);
             lights[0] = true;
         }
     }
@@ -231,11 +231,11 @@ public class LightsgameActivity extends AppCompatActivity {
         ImageView botLamp = (ImageView)findViewById(R.id.botLamp);
         if(lights[1]){
             //If light was on, turn off
-            botLamp.setAlpha(0);
+            botLamp.setImageAlpha(0);
             lights[1] = false;
         }else {
             //If light was off, turn on
-            botLamp.setAlpha(1);
+            botLamp.setImageAlpha(255);
             lights[1] = true;
         }
     }
