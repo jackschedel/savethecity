@@ -1,16 +1,16 @@
-package com.example.savethecity.ui.play;
+package com.citysavers.savethecity.ui.dashboard;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class PlayViewModel extends ViewModel {
+public class DashboardViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public PlayViewModel() {
+    public DashboardViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is play fragment");
+        mText.setValue("This is dashboard fragment");
     }
 
     public LiveData<String> getText() {

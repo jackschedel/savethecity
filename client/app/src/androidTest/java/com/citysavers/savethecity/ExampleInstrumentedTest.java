@@ -1,4 +1,4 @@
-package com.example.savethecity;
+package com.citysavers.savethecity;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.savethecity", appContext.getPackageName());
+        assertEquals("com.citysavers.savethecity", appContext.getPackageName());
     }
 }

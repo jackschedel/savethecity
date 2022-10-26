@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.savethecity'
+    namespace 'com.citysavers.savethecity'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.savethecity"
+        applicationId "com.citysavers.savethecity"
         minSdk 26
         targetSdk 32
         versionCode 1

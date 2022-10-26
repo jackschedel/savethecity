@@ -1,4 +1,4 @@
-package com.example.savethecity;
+package com.citysavers.savethecity;
 
 import org.junit.Test;
 
