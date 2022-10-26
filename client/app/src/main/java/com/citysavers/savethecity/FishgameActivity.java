@@ -5,19 +5,17 @@ import android.annotation.SuppressLint;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowInsets;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.TranslateAnimation;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.citysavers.savethecity.databinding.ActivityFishgameBinding;
 
@@ -140,53 +138,49 @@ public class FishgameActivity extends AppCompatActivity {
 
         ImageButton trashButton1 = (ImageButton)findViewById(R.id.trashButton1);
 
-
-        TranslateAnimation slider = new TranslateAnimation(0, -200, 0,600 );
-        slider.setDuration(1000);
-        slider.setFillAfter(false);
-        //trashButton1.startAnimation(slider);
-
-        /*
-        new CountDownTimer(100000, 500){
-
-            int i = 0;
-
-            public void onTick(long millisUntilFinished){
-                if(i % 2 == 0) {
-
-                    trashButton1.setX(900);
-                    trashButton1.setY(-100);
-
-                }else{
-
-                    trashButton1.setX(-300);
-                    trashButton1.setY(1900);
-                }
+        ImageView riverImageElem2 = (ImageView)findViewById(R.id.riverImage2);
 
 
-
-                i++;
-            }
-            public  void onFinish(){
-
-            }
-        }.start();
-        */
         new CountDownTimer(5500, 1){
 
-            int x = 1000;
-            int y = -200;
+            boolean bobbingUp = true;
+            boolean riverImageBool = true;
+
+            int iterations = 0;
+
+            int trashButton1X = 1000;
+            int trashButton1Y = -200;
 
             public void onTick(long millisUntilFinished){
 
-                    trashButton1.setX(x);
-                    trashButton1.setY(y);
+                trashButton1.setX(trashButton1X);
+                trashButton1.setY(trashButton1Y);
+
+                trashButton1X -= 4.8;
+
+                if(bobbingUp)
+                    trashButton1Y += 7.8;
+                else
+                    trashButton1Y += 5.8;
+
+                if(iterations %50 == 0)
+                    bobbingUp = !bobbingUp;
 
 
-                    x -= 4.8;
+                if(iterations %10 == 0) {
 
-                    y += 7.0;
+                    if (riverImageBool) {
+                        Log.e("test", "owo");
+                        riverImageElem2.setImageAlpha(255);
+                    } else {
+                        Log.e("test", "uwu");
+                        riverImageElem2.setImageAlpha(0);
+                    }
 
+                    riverImageBool = !riverImageBool;
+                }
+
+                iterations++;
             }
             public  void onFinish(){
 
@@ -231,7 +225,7 @@ public class FishgameActivity extends AppCompatActivity {
     public void trashButton1_onClick(View v)
     {
         ImageButton trashButton1 = (ImageButton)findViewById(R.id.trashButton1);
-        trashButton1.setAlpha(0);
+        trashButton1.setImageAlpha(0);
 
     }
 
