@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".ui.playscreen.PlayscreenFragment">
 
+    <Button
+        android:id="@+id/playLightsbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="playLightsbutton_onClick"
+        android:text="Lights"
+        app:layout_constraintBottom_toTopOf="@+id/text_playscreen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.415" />
+
     <TextView
         android:id="@+id/text_playscreen"
         android:layout_width="match_parent"
@@ -21,15 +34,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/playbutton"
+        android:id="@+id/playRecyclebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="playbutton_onClick"
-        android:text="Play"
+        android:onClick="playRecyclebutton_onClick"
+        android:text="Recycle"
         app:layout_constraintBottom_toTopOf="@+id/text_playscreen"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.191" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
