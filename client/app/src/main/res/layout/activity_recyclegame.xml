@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/fullscreenBackgroundColor"
+    android:background="@drawable/recycle_game_bckgrd"
     android:theme="@style/ThemeOverlay.Savethecity.FullscreenContainer"
     tools:context=".RecyclegameActivity">
 
@@ -16,8 +16,6 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:keepScreenOn="true"
-        android:text="@string/dummy_content"
-        android:textColor="?attr/fullscreenTextColor"
         android:textSize="50sp"
         android:textStyle="bold" />
 
@@ -37,15 +35,79 @@
             android:orientation="horizontal"
             tools:ignore="UselessParent">
 
-            <Button
-                android:id="@+id/dummy_button"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/dummy_button" />
-
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/item"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/glass"
+            android:translationX="150dp"
+            android:translationY="240dp" />
+
+        <ImageView
+            android:id="@+id/trash"
+            android:layout_width="242dp"
+            android:layout_height="303dp"
+            android:src="@drawable/recycle_game_furnace"
+            android:translationX="-53dp"
+            android:translationY="180dp" />
+
+        <Button
+            android:id="@+id/furnace"
+            android:layout_width="192dp"
+            android:layout_height="226dp"
+            android:alpha="0"
+            android:onClick="sort_onClick"
+            android:scaleY="3"
+            android:text="furnace"
+            android:translationX="-53dp"
+            android:translationY="180dp" />
+
+        <Button
+            android:id="@+id/glass"
+            android:layout_width="183dp"
+            android:layout_height="139dp"
+            android:alpha="0"
+            android:onClick="sort_onClick"
+            android:scaleX="1"
+            android:text="glass"
+            android:translationX="35dp"
+            android:translationY="410dp" />
+
+        <Button
+            android:id="@+id/paper"
+            android:layout_width="183dp"
+            android:layout_height="139dp"
+            android:alpha="0"
+            android:onClick="setItem"
+            android:scaleX="1"
+            android:text="paper"
+            android:translationX="220dp"
+            android:translationY="410dp" />
+
+        <Button
+            android:id="@+id/organic"
+            android:layout_width="183dp"
+            android:layout_height="139dp"
+            android:alpha="0"
+            android:onClick="sort_onClick"
+            android:scaleX="1"
+            android:text="organic"
+            android:translationX="35dp"
+            android:translationY="550dp" />
+
+        <Button
+            android:id="@+id/plastic"
+            android:layout_width="183dp"
+            android:layout_height="139dp"
+            android:alpha="0"
+            android:onClick="sort_onClick"
+            android:scaleX="1"
+            android:text="plastic"
+            android:translationX="220dp"
+            android:translationY="550dp" />
+
     </FrameLayout>
 
 </FrameLayout>

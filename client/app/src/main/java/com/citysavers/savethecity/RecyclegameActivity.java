@@ -4,7 +4,10 @@ import android.annotation.SuppressLint;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuView;
 
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.DrawableWrapper;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,8 +15,11 @@ import android.os.Looper;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowInsets;
+import android.widget.ImageView;
 
 import com.citysavers.savethecity.databinding.ActivityRecyclegameBinding;
+
+import java.util.Random;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -114,19 +120,7 @@ public class RecyclegameActivity extends AppCompatActivity {
         mVisible = true;
         mControlsView = binding.fullscreenContentControls;
         mContentView = binding.fullscreenContent;
-
-        // Set up the user interaction to manually show or hide the system UI.
-        mContentView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toggle();
-            }
-        });
-
-        // Upon interacting with UI controls, delay any scheduled hide()
-        // operations to prevent the jarring behavior of controls going away
-        // while interacting with the UI.
-        binding.dummyButton.setOnTouchListener(mDelayHideTouchListener);
+        //setItem(mControlsView);
     }
 
     @Override
@@ -136,7 +130,7 @@ public class RecyclegameActivity extends AppCompatActivity {
         // Trigger the initial hide() shortly after the activity has been
         // created, to briefly hint to the user that UI controls
         // are available.
-        delayedHide(100);
+        delayedHide(0);
     }
 
     private void toggle() {
@@ -184,5 +178,40 @@ public class RecyclegameActivity extends AppCompatActivity {
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    }
+
+    //added functions
+    public void setItem(View v){
+        String[] itemArray = new String[15];
+        itemArray[0] = "@drawable/apple";
+        itemArray[1] = "@drawable/banana";
+        itemArray[2] = "@drawable/bottle";
+        itemArray[3] = "@drawable/box";
+        itemArray[4] = "@drawable/chips";
+        itemArray[5] = "@drawable/fishbones";
+        itemArray[6] = "@drawable/glass";
+        itemArray[7] = "@drawable/glassbottle";
+        itemArray[8] = "@drawable/jar";
+        itemArray[9] = "@drawable/newspaper";
+        itemArray[10] = "@drawable/paper";
+        itemArray[11] = "@drawable/plasticcontainer";
+        itemArray[12] = "@drawable/shoe";
+        itemArray[13] = "@drawable/toothbrush";
+        itemArray[14] = "@drawable/trashbag";
+
+        Random rand = new Random();
+        int upperBound = 14;
+        int int_random = rand.nextInt(upperBound);
+
+        ImageView item = findViewById(R.id.item);
+        int imageResource = getResources().getIdentifier(itemArray[int_random], null, getPackageName());
+        Drawable res = getResources().getDrawable(imageResource);
+        item.setImageDrawable(res);
+
+    }
+
+    public void sort_onClick(View v){
+        ImageView item = (ImageView) findViewById(R.id.item);
+        //if item
     }
 }
