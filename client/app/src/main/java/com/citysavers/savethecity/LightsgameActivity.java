@@ -12,6 +12,7 @@ import android.os.Looper;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowInsets;
+import android.widget.TextView;
 
 import com.citysavers.savethecity.databinding.ActivityLightsgameBinding;
 
@@ -39,6 +40,11 @@ public class LightsgameActivity extends AppCompatActivity {
     private static final int UI_ANIMATION_DELAY = 300;
     private final Handler mHideHandler = new Handler(Looper.myLooper());
     private View mContentView;
+
+    private boolean light1state = false;
+    private boolean light2state = false;
+
+
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
         @Override
@@ -185,4 +191,26 @@ public class LightsgameActivity extends AppCompatActivity {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
+
+    private void light1_onClick(View v){
+        TextView tv = (TextView)findViewById(R.id.textView);
+        if(light1state){
+            tv.setText("Light 1: Off");
+            light1state = false;
+        }else {
+            tv.setText("Light 1: On");
+            light1state = true;
+        }
+    }
+    private void light2_onClick(View v){
+        TextView tv = (TextView)findViewById(R.id.textView2);
+        if(light1state){
+            tv.setText("Light 2: Off");
+            light2state = false;
+        }else {
+            tv.setText("Light 2: On");
+            light2state = true;
+        }
+    }
+
 }
