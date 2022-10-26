@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_playscreen">
+    app:startDestination="@+id/lightsgame">
 
     <fragment
         android:id="@+id/navigation_tips"
@@ -16,6 +16,12 @@
         android:name="com.citysavers.savethecity.ui.recyclegame.RecyclegameFragment"
         android:label="@string/title_recyclegame"
         tools:layout="@layout/fragment_recyclegame" />
+
+    <fragment
+        android:id="@+id/lightsgame"
+        android:name="com.citysavers.savethecity.ui.lightsgame.LightsgameFragment"
+        android:label="@string/title_lightsgame"
+        tools:layout="@layout/fragment_lightsgame" />
 
     <fragment
         android:id="@+id/navigation_playscreen"
