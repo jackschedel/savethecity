@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">savethecity</string>
     <string name="title_tips">Tips</string>
+    <string name="title_recyclegame">Recycle Game</string>
     <string name="title_playscreen">Playscreen</string>
     <string name="title_city">City</string>
 </resources>
