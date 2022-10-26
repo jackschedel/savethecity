@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.citysavers.savethecity.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_playscreen"
+        android:name="com.citysavers.savethecity.ui.playscreen.PlayscreenFragment"
+        android:label="@string/title_playscreen"
+        tools:layout="@layout/fragment_playscreen" />
 
     <fragment
         android:id="@+id/navigation_notifications"
