@@ -40,7 +40,20 @@ public class MainActivity extends AppCompatActivity {
     public void playbutton_onClick(View v)
     {
         Log.e("debugFlags", "pog");
+
+        setContentView(R.layout.fragment_recyclegame);
+
+
     }
 
+
+    public void backToHome(View v)
+    {
+        Log.e("debugFlags", "pog");
+
+        setContentView(binding.getRoot());
+
+
+    }
 
 }
