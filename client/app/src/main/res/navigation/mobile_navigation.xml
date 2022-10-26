@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_tips">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.citysavers.savethecity.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_tips"
+        android:name="com.citysavers.savethecity.ui.tips.TipsFragment"
+        android:label="@string/title_tips"
+        tools:layout="@layout/fragment_tips" />
 
     <fragment
         android:id="@+id/navigation_playscreen"
@@ -18,8 +18,8 @@
         tools:layout="@layout/fragment_playscreen" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.citysavers.savethecity.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_city"
+        android:name="com.citysavers.savethecity.ui.city.CityFragment"
+        android:label="@string/title_city"
+        tools:layout="@layout/fragment_city" />
 </navigation>

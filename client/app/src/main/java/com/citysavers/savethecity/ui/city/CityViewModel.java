@@ -1,16 +1,16 @@
-package com.citysavers.savethecity.ui.home;
+package com.citysavers.savethecity.ui.city;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class CityViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public CityViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("This is city fragment");
     }
 
     public LiveData<String> getText() {
