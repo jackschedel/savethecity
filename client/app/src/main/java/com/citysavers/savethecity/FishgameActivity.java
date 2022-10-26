@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.MotionEvent;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.WindowInsets;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageButton;
 
 import com.citysavers.savethecity.databinding.ActivityFishgameBinding;
@@ -138,8 +140,61 @@ public class FishgameActivity extends AppCompatActivity {
 
         ImageButton trashButton1 = (ImageButton)findViewById(R.id.trashButton1);
 
-        final Animation animTranslate = AnimationUtils.loadAnimation(this, R.anim.fishgame_trash_anim);
-        trashButton1.startAnimation(animTranslate);
+
+        TranslateAnimation slider = new TranslateAnimation(0, -200, 0,600 );
+        slider.setDuration(1000);
+        slider.setFillAfter(false);
+        //trashButton1.startAnimation(slider);
+
+        /*
+        new CountDownTimer(100000, 500){
+
+            int i = 0;
+
+            public void onTick(long millisUntilFinished){
+                if(i % 2 == 0) {
+
+                    trashButton1.setX(900);
+                    trashButton1.setY(-100);
+
+                }else{
+
+                    trashButton1.setX(-300);
+                    trashButton1.setY(1900);
+                }
+
+
+
+                i++;
+            }
+            public  void onFinish(){
+
+            }
+        }.start();
+        */
+        new CountDownTimer(5500, 1){
+
+            int x = 1000;
+            int y = -200;
+
+            public void onTick(long millisUntilFinished){
+
+                    trashButton1.setX(x);
+                    trashButton1.setY(y);
+
+
+                    x -= 4.8;
+
+                    y += 7.0;
+
+            }
+            public  void onFinish(){
+
+            }
+        }.start();
+
+
+
 
     }
 
