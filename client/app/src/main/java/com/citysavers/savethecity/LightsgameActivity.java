@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.MotionEvent;
@@ -110,29 +111,32 @@ public class LightsgameActivity extends AppCompatActivity {
     };
     private ActivityLightsgameBinding binding;
 
+    public int counter = 10;
+    TextView timer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = ActivityLightsgameBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        timer= (TextView) findViewById(R.id.timer);
+
+
+        new CountDownTimer(10000, 1000){
+            public void onTick(long millisUntilFinished){
+                timer.setText(String.valueOf(counter));
+                counter--;
+            }
+            public  void onFinish(){
+                timer.setText("FINISH!!");
+            }
+        }.start();
 
         mVisible = true;
         mControlsView = binding.fullscreenContentControls;
         mContentView = binding.fullscreenContent;
 
-        // Set up the user interaction to manually show or hide the system UI.
-        mContentView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toggle();
-            }
-        });
-
-        // Upon interacting with UI controls, delay any scheduled hide()
-        // operations to prevent the jarring behavior of controls going away
-        // while interacting with the UI.
-        binding.dummyButton.setOnTouchListener(mDelayHideTouchListener);
     }
 
     @Override
@@ -142,7 +146,7 @@ public class LightsgameActivity extends AppCompatActivity {
         // Trigger the initial hide() shortly after the activity has been
         // created, to briefly hint to the user that UI controls
         // are available.
-        delayedHide(100);
+        delayedHide(0);
     }
 
     private void toggle() {
@@ -192,7 +196,7 @@ public class LightsgameActivity extends AppCompatActivity {
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
 
-    private void light1_onClick(View v){
+    public void light1_onClick(View v){
         TextView tv = (TextView)findViewById(R.id.textView);
         if(light1state){
             tv.setText("Light 1: Off");
@@ -202,9 +206,9 @@ public class LightsgameActivity extends AppCompatActivity {
             light1state = true;
         }
     }
-    private void light2_onClick(View v){
+    public void light2_onClick(View v){
         TextView tv = (TextView)findViewById(R.id.textView2);
-        if(light1state){
+        if(light2state){
             tv.setText("Light 2: Off");
             light2state = false;
         }else {
