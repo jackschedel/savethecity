@@ -20,6 +20,10 @@ import com.citysavers.savethecity.databinding.ActivityLightsgameBinding;
  * status bar and navigation/system bar) with user interaction.
  */
 public class LightsgameActivity extends AppCompatActivity {
+
+
+
+
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.

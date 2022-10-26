@@ -17,6 +17,19 @@
          android:fitsSystemWindows. -->
 
 
+    <ImageButton
+        android:id="@+id/trashButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="1.0"
+        android:background="@null"
+        android:onClick="trashButton1_onClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullscreen_content"
+        app:srcCompat="@drawable/bottle"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:contentDescription="TODO" />
+
     <TextView
         android:id="@+id/fullscreen_content"
         android:layout_width="0dp"
@@ -36,20 +49,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fullscreen_content"
         tools:ignore="UselessParent" />
-
-    <Button
-        android:id="@+id/fishGameButton1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="fishGameButton1_onClick"
-        android:text="Test"
-        app:layout_constraintStart_toStartOf="@+id/fullscreen_content"
-        app:layout_constraintTop_toTopOf="@+id/fullscreen_content" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

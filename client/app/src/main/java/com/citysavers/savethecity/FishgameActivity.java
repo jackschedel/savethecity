@@ -13,6 +13,9 @@ import android.os.Looper;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowInsets;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
 
 import com.citysavers.savethecity.databinding.ActivityFishgameBinding;
 
@@ -132,6 +135,12 @@ public class FishgameActivity extends AppCompatActivity {
         // created, to briefly hint to the user that UI controls
         // are available.
         delayedHide(0);
+
+        ImageButton trashButton1 = (ImageButton)findViewById(R.id.trashButton1);
+
+        final Animation animTranslate = AnimationUtils.loadAnimation(this, R.anim.fishgame_trash_anim);
+        trashButton1.startAnimation(animTranslate);
+
     }
 
     private void hide() {
@@ -156,12 +165,20 @@ public class FishgameActivity extends AppCompatActivity {
     }
 
 
+
+
     public void fishGameButton1_onClick(View v)
     {
         finish();
 
     }
 
+    public void trashButton1_onClick(View v)
+    {
+        ImageButton trashButton1 = (ImageButton)findViewById(R.id.trashButton1);
+        trashButton1.setAlpha(0);
+
+    }
 
 
 }
