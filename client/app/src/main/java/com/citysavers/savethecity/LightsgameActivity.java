@@ -14,6 +14,8 @@ import android.os.Looper;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowInsets;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.citysavers.savethecity.databinding.ActivityLightsgameBinding;
@@ -213,23 +215,27 @@ public class LightsgameActivity extends AppCompatActivity {
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
 
-    public void light1_onClick(View v){
-        TextView tv = (TextView)findViewById(R.id.textView);
+    public void upLampB_onClick(View v){
+        ImageView upLamp = (ImageView)findViewById(R.id.upLamp);
         if(lights[0]){
-            tv.setText("Light 1: Off");
+            //If light was on, turn off
+            upLamp.setAlpha(0);
             lights[0] = false;
         }else {
-            tv.setText("Light 1: On");
+            //If light was off, turn on
+            upLamp.setAlpha(1);
             lights[0] = true;
         }
     }
-    public void light2_onClick(View v){
-        TextView tv = (TextView)findViewById(R.id.textView2);
+    public void botLampB_onClick(View v){
+        ImageView botLamp = (ImageView)findViewById(R.id.botLamp);
         if(lights[1]){
-            tv.setText("Light 2: Off");
+            //If light was on, turn off
+            botLamp.setAlpha(0);
             lights[1] = false;
         }else {
-            tv.setText("Light 2: On");
+            //If light was off, turn on
+            botLamp.setAlpha(1);
             lights[1] = true;
         }
     }
