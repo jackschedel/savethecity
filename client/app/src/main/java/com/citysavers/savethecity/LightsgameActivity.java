@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Random;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -44,7 +45,7 @@ public class LightsgameActivity extends AppCompatActivity {
 
     private boolean light1state = false;
     private boolean light2state = false;
-
+    private Boolean[] lights = new Boolean[7];
 
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
@@ -111,8 +112,9 @@ public class LightsgameActivity extends AppCompatActivity {
     };
     private ActivityLightsgameBinding binding;
 
-    public int counter = 10;
+    public int counter = 20;
     TextView timer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,10 +122,23 @@ public class LightsgameActivity extends AppCompatActivity {
 
         binding = ActivityLightsgameBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        // Initializing the lights to be randomly on or off
+        Random rand = new Random();
+        int upperBound = 1;
+        for(int i = 0; i < lights.length; i++) {
+            int int_random = rand.nextInt(upperBound);
+            if(int_random == 0) {
+                lights[i] = false;
+            } else {
+                lights[i] = true;
+            }
+        }
+
         timer= (TextView) findViewById(R.id.timer);
 
 
-        new CountDownTimer(10000, 1000){
+        new CountDownTimer(20000, 1000){
             public void onTick(long millisUntilFinished){
                 timer.setText(String.valueOf(counter));
                 counter--;
@@ -147,6 +162,8 @@ public class LightsgameActivity extends AppCompatActivity {
         // created, to briefly hint to the user that UI controls
         // are available.
         delayedHide(0);
+
+
     }
 
     private void toggle() {
@@ -198,22 +215,22 @@ public class LightsgameActivity extends AppCompatActivity {
 
     public void light1_onClick(View v){
         TextView tv = (TextView)findViewById(R.id.textView);
-        if(light1state){
+        if(lights[0]){
             tv.setText("Light 1: Off");
-            light1state = false;
+            lights[0] = false;
         }else {
             tv.setText("Light 1: On");
-            light1state = true;
+            lights[0] = true;
         }
     }
     public void light2_onClick(View v){
         TextView tv = (TextView)findViewById(R.id.textView2);
-        if(light2state){
+        if(lights[1]){
             tv.setText("Light 2: Off");
-            light2state = false;
+            lights[1] = false;
         }else {
             tv.setText("Light 2: On");
-            light2state = true;
+            lights[1] = true;
         }
     }
 
