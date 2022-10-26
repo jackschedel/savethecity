@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.playscreen.PlayscreenFragment">
+    tools:context=".ui.recyclegame.RecyclegameFragment">
 
     <TextView
-        android:id="@+id/text_playscreen"
+        android:id="@+id/text_recyclegame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -21,15 +21,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/playbutton"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="playbutton_onClick"
-        android:text="Play"
-        app:layout_constraintBottom_toTopOf="@+id/text_playscreen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
+        android:onClick="backToHome"
+        android:text="YOOOOOOO"
+        tools:layout_editor_absoluteX="156dp"
+        tools:layout_editor_absoluteY="223dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

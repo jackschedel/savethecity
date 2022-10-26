@@ -1,6 +1,8 @@
 package com.citysavers.savethecity;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -32,6 +34,26 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+    }
+
+
+    public void playbutton_onClick(View v)
+    {
+        Log.e("debugFlags", "pog");
+
+        setContentView(R.layout.fragment_recyclegame);
+
+
+    }
+
+
+    public void backToHome(View v)
+    {
+        Log.e("debugFlags", "pog");
+
+        setContentView(binding.getRoot());
+
+
     }
 
 }

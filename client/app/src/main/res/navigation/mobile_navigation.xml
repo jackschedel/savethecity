@@ -3,13 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_tips">
+    app:startDestination="@+id/navigation_playscreen">
 
     <fragment
         android:id="@+id/navigation_tips"
         android:name="com.citysavers.savethecity.ui.tips.TipsFragment"
         android:label="@string/title_tips"
         tools:layout="@layout/fragment_tips" />
+
+    <fragment
+        android:id="@+id/recyclegame"
+        android:name="com.citysavers.savethecity.ui.recyclegame.RecyclegameFragment"
+        android:label="@string/title_recyclegame"
+        tools:layout="@layout/fragment_recyclegame" />
 
     <fragment
         android:id="@+id/navigation_playscreen"
