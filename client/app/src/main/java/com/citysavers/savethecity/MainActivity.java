@@ -1,7 +1,7 @@
 package com.citysavers.savethecity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void playLightsbutton_onClick(View v)
     {
-        setContentView(R.layout.fragment_lightsgame);
+        Intent intent = new Intent(MainActivity.this, LightsgameActivity.class);
+        startActivity(intent);
 
     }
 
@@ -47,10 +48,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void playRecyclebutton_onClick(View v)
     {
-        setContentView(R.layout.fragment_recyclegame);
+        Intent intent = new Intent(MainActivity.this, RecyclegameActivity.class);
+        startActivity(intent);
 
     }
 
+    public void playFishbutton_onClick(View v)
+    {
+        //setContentView(R.layout.fragment_fishgame);
+
+
+        Intent intent = new Intent(MainActivity.this, FishgameActivity.class);
+        startActivity(intent);
+
+    }
 
 
 }
