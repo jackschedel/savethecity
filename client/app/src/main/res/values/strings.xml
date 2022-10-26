@@ -1,8 +1,13 @@
 <resources>
-    <string name="app_name">savethecity</string>
+    <string name="app_name">Save The City</string>
     <string name="title_tips">Tips</string>
     <string name="title_recyclegame">Recycle Game</string>
-    <string name="title_playscreen">Playscreen</string>
+    <string name="title_playscreen">Play</string>
     <string name="title_city">City</string>
     <string name="title_lightsgame">Lights Game</string>
+    <string name="title_activity_fishgame">fishgameActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_lightsgame">LightsgameActivity</string>
+    <string name="title_activity_recyclegame">RecyclegameActivity</string>
 </resources>

@@ -19,6 +19,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.415" />
 
+    <Button
+        android:id="@+id/playFishbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="playFishbutton_onClick"
+        android:text="Fish"
+        app:layout_constraintBottom_toTopOf="@+id/text_playscreen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.626" />
+
     <TextView
         android:id="@+id/text_playscreen"
         android:layout_width="match_parent"
