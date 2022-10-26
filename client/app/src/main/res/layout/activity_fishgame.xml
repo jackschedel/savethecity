@@ -44,11 +44,6 @@
             android:onClick="fishGameButton1_onClick"
             android:text="Test" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="310dp"
-            android:layout_height="308dp"
-            app:srcCompat="@drawable/recycle_assets" />
     </FrameLayout>
 
 </FrameLayout>
