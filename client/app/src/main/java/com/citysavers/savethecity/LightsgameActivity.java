@@ -56,6 +56,7 @@ public class LightsgameActivity extends AppCompatActivity {
     public int score = 0;
     public int alt = 255;
     public int oth = 0;
+    public boolean win = true;
 
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
@@ -182,7 +183,16 @@ public class LightsgameActivity extends AppCompatActivity {
             }
             public void onFinish(){
                 timer.setText("Time's Up!");
-                finish();
+                for(int i = 0; i <lights.length; i++){
+                    if(lights[i]){
+                        win = false;
+                    }
+                }
+                if(win){
+                    onWin();
+                }else{
+                    onLose();
+                }
             }
         }.start();
 
@@ -201,33 +211,9 @@ public class LightsgameActivity extends AppCompatActivity {
         // are available.
         delayedHide(0);
 
-//        TextView test= (TextView) findViewById(R.id.test);
-//
-//        Timer timer = new Timer();
-//        timer.schedule(new TimerTask() {
-//            @Override
-//            public void run() {
-//                test.setText("Done");
-//                if(alt == 255){
-//                    alt = 0;
-//                    oth = 255;
-//                }else{
-//                    alt = 255;
-//                    oth = 0;
-//                }
-//                ((ImageView)findViewById(R.id.upFan1)).setImageAlpha(alt);
-//                ((ImageView)findViewById(R.id.upFan2)).setImageAlpha(oth);
-//                ((ImageView)findViewById(R.id.downFan1)).setImageAlpha(oth);
-//                ((ImageView)findViewById(R.id.downFan2)).setImageAlpha(alt);
-//            }
-//        }, 0, 500);//wait 0 ms before doing the action and do it every 500ms
-//
-//        timer.cancel();//stop the timer
         Random rand = new Random();
-        TextView test= (TextView) findViewById(R.id.test);
         new CountDownTimer(counter*1000, 100){
             public void onTick(long millisUntilFinished){
-                test.setText("Done");
                 if(alt == 255){
                     alt = 0;
                     oth = 255;
@@ -295,6 +281,12 @@ public class LightsgameActivity extends AppCompatActivity {
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    }
+    private void onWin(){
+
+    }
+    private void onLose(){
+
     }
 
     public void upLampB_onClick(View v){
