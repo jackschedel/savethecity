@@ -5,6 +5,10 @@ import android.annotation.SuppressLint;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -136,44 +140,121 @@ public class FishgameActivity extends AppCompatActivity {
         // are available.
         delayedHide(0);
 
-        ImageButton trashButton1 = (ImageButton)findViewById(R.id.trashButton1);
+        //ImageButton trashButton1 = (ImageButton)findViewById(R.id.trashButton1);
+
+        ImageButton[] buttonArray = {
+                (ImageButton)findViewById(R.id.trashButton1),
+                (ImageButton)findViewById(R.id.trashButton2),
+                (ImageButton)findViewById(R.id.trashButton3),
+                (ImageButton)findViewById(R.id.fishButton1),
+                (ImageButton)findViewById(R.id.fishButton2),
+                (ImageButton)findViewById(R.id.fishButton3),
+                (ImageButton)findViewById(R.id.fishButton5),
+                (ImageButton)findViewById(R.id.fishButton6),
+                (ImageButton)findViewById(R.id.fishButton7)};
+
+        List<ImageButton> buttonList = Arrays.asList(buttonArray);
+
+        Collections.shuffle(buttonList);
+
+        buttonList.toArray(buttonArray);
 
         ImageView riverImageElem2 = (ImageView)findViewById(R.id.riverImage2);
 
+        double speedVar = 1.0;
 
-        new CountDownTimer(5500, 1){
+        new CountDownTimer((long) (25200* (1/speedVar)), 1){
 
-            boolean bobbingUp = true;
+            boolean bobbingUp1 = true;
+            boolean bobbingUp2 = true;
+            boolean bobbingUp3 = true;
+
             boolean riverImageBool = true;
 
             int iterations = 0;
 
-            int trashButton1X = 1000;
-            int trashButton1Y = -200;
+            int path1X = 1000;
+            int path1Y = 285;
 
-            public void onTick(long millisUntilFinished){
+            int path2X = 1000;
+            int path2Y = 285;
 
-                trashButton1.setX(trashButton1X);
-                trashButton1.setY(trashButton1Y);
+            int path3X = 1000;
+            int path3Y = 285;
 
-                trashButton1X -= 4.8;
+            int offsetVar = 500;
 
-                if(bobbingUp)
-                    trashButton1Y += 7.8;
-                else
-                    trashButton1Y += 5.8;
+            double angleOffset = .74;
 
-                if(iterations %50 == 0)
-                    bobbingUp = !bobbingUp;
+            public void onTick(long millisUntilFinished) {
+
+                buttonArray[0].setX(path1X);
+                buttonArray[0].setY(path1Y);
+
+                buttonArray[1].setX(path2X + offsetVar);
+                buttonArray[1].setY(path2Y - offsetVar);
+
+                buttonArray[2].setX(path3X + 2 * offsetVar);
+                buttonArray[2].setY(path3Y - 2 * offsetVar);
+
+                buttonArray[3].setX(path1X + 3 * offsetVar);
+                buttonArray[3].setY(path1Y - 3 * offsetVar);
+
+                buttonArray[4].setX(path2X + 4 * offsetVar);
+                buttonArray[4].setY(path2Y - 4 * offsetVar);
+
+                buttonArray[5].setX(path3X + 5 * offsetVar);
+                buttonArray[5].setY(path3Y - 5 * offsetVar);
+
+                buttonArray[6].setX(path1X + 6 * offsetVar);
+                buttonArray[6].setY(path1Y - 6 * offsetVar);
+
+                buttonArray[7].setX(path2X + 7 * offsetVar);
+                buttonArray[7].setY(path2Y - 7 * offsetVar);
+
+                buttonArray[8].setX(path3X + 8 * offsetVar);
+                buttonArray[8].setY(path3Y - 8 * offsetVar);
+
+
+                if (bobbingUp1) {
+                    path1Y += 7.8 * speedVar * angleOffset;
+                    path1X -= 2.8 * speedVar;
+                } else {
+                    path1Y += 3.8 * speedVar * angleOffset;
+                    path1X -= 5.8 * speedVar;
+                }
+                if (bobbingUp2) {
+                    path2Y += 7.8 * speedVar * angleOffset;
+                    path2X -= 2.8 * speedVar;
+                } else {
+                    path2Y += 3.8 * speedVar * angleOffset;
+                    path2X -= 5.8 * speedVar;
+                }
+
+                if (bobbingUp3) {
+                    path3Y += 7.8 * speedVar * angleOffset;
+                    path3X -= 2.8 * speedVar;
+                } else {
+                    path3Y += 3.8 * speedVar * angleOffset;
+                    path3X -= 5.8 * speedVar;
+                }
+
+
+                if(iterations %21 == 0)
+                    bobbingUp1 = !bobbingUp1;
+
+                if(iterations %21 == 7)
+                    bobbingUp2 = !bobbingUp2;
+
+                if(iterations %21 == 14)
+                    bobbingUp3 = !bobbingUp3;
 
 
                 if(iterations %10 == 0) {
 
                     if (riverImageBool) {
-                        Log.e("test", "owo");
                         riverImageElem2.setImageAlpha(255);
                     } else {
-                        Log.e("test", "uwu");
                         riverImageElem2.setImageAlpha(0);
                     }
 
@@ -213,19 +294,32 @@ public class FishgameActivity extends AppCompatActivity {
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
 
+    int score = 0;
+
+
+    public void fishButton1_onClick(View v){
+        onLose();
+    }
 
 
 
-    public void fishGameButton1_onClick(View v)
-    {
-        finish();
+    public void trashButton1_onClick(View v) {
+        ImageButton trashButton1 = (ImageButton)findViewById(R.id.trashButton1);
+
+
+        if(trashButton1.getBackground() != null){
+            score++;
+        }
+
+        trashButton1.setBackground(null);
+
+
+        Log.e("owo", "test " + score);
 
     }
 
-    public void trashButton1_onClick(View v)
-    {
-        ImageButton trashButton1 = (ImageButton)findViewById(R.id.trashButton1);
-        trashButton1.setImageAlpha(0);
+    private void onLose(){
+
 
     }
 
