@@ -4,12 +4,10 @@ import android.annotation.SuppressLint;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.MenuView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.DrawableWrapper;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -19,7 +17,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowInsets;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -386,7 +383,7 @@ public class RecyclegameActivity extends AppCompatActivity {
     }
 
     private void onWin(){
-        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.winScreen);
+        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.water);
         winScreen.setVisibility(View.VISIBLE);
     }
 

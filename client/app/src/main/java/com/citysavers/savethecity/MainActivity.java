@@ -7,6 +7,7 @@ import android.view.View;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -40,7 +41,54 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+    public void waterB_onClick(View v){
+        ConstraintLayout waterScreen = (ConstraintLayout)findViewById(R.id.water);
+        ConstraintLayout tipsButtons = (ConstraintLayout)findViewById(R.id.tipsButtons);
+        tipsButtons.setVisibility(View.GONE);
+        waterScreen.setVisibility(View.VISIBLE);
+    }
+    public void back1_onClick(View v){
+        ConstraintLayout waterScreen = (ConstraintLayout)findViewById(R.id.water);
+        ConstraintLayout tipsButtons = (ConstraintLayout)findViewById(R.id.tipsButtons);
+        tipsButtons.setVisibility(View.VISIBLE);
+        waterScreen.setVisibility(View.GONE);
+    }
+    public void healthB_onClick(View v){
+        ConstraintLayout healthScreen = (ConstraintLayout)findViewById(R.id.health);
+        ConstraintLayout tipsButtons = (ConstraintLayout)findViewById(R.id.tipsButtons);
+        tipsButtons.setVisibility(View.GONE);
+        healthScreen.setVisibility(View.VISIBLE);
+    }
+    public void back2_onClick(View v){
+        ConstraintLayout healthScreen = (ConstraintLayout)findViewById(R.id.health);
+        ConstraintLayout tipsButtons = (ConstraintLayout)findViewById(R.id.tipsButtons);
+        tipsButtons.setVisibility(View.VISIBLE);
+        healthScreen.setVisibility(View.GONE);
+    }
+    public void pollutionB_onClick(View v){
+        ConstraintLayout pollutionScreen = (ConstraintLayout)findViewById(R.id.pollution);
+        ConstraintLayout tipsButtons = (ConstraintLayout)findViewById(R.id.tipsButtons);
+        tipsButtons.setVisibility(View.GONE);
+        pollutionScreen.setVisibility(View.VISIBLE);
+    }
+    public void back3_onClick(View v){
+        ConstraintLayout pollutionScreen = (ConstraintLayout)findViewById(R.id.pollution);
+        ConstraintLayout tipsButtons = (ConstraintLayout)findViewById(R.id.tipsButtons);
+        tipsButtons.setVisibility(View.VISIBLE);
+        pollutionScreen.setVisibility(View.GONE);
+    }
+    public void energyB_onClick(View v){
+        ConstraintLayout energyScreen = (ConstraintLayout)findViewById(R.id.energy);
+        ConstraintLayout tipsButtons = (ConstraintLayout)findViewById(R.id.tipsButtons);
+        tipsButtons.setVisibility(View.GONE);
+        energyScreen.setVisibility(View.VISIBLE);
+    }
+    public void back4_onClick(View v){
+        ConstraintLayout energyScreen = (ConstraintLayout)findViewById(R.id.energy);
+        ConstraintLayout tipsButtons = (ConstraintLayout)findViewById(R.id.tipsButtons);
+        tipsButtons.setVisibility(View.VISIBLE);
+        energyScreen.setVisibility(View.GONE);
+    }
 
     public void playLightsbutton_onClick(View v)
     {
