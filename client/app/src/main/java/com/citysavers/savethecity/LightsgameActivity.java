@@ -8,8 +8,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.Random;
 
-import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -64,7 +62,6 @@ public class LightsgameActivity extends AppCompatActivity {
     public ProgressBar progressBar;
     public int progress = 200;
     public Random rand = new Random();
-    //public final MediaPlayer mp = MediaPlayer.create(this, R.raw.light_switch_2);
 
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
@@ -240,7 +237,6 @@ public class LightsgameActivity extends AppCompatActivity {
 
 
     public void upLampB_onClick(View v){
-        //mp.start();
         if(lights[0]){
             //If light was on, turn off
             lightsI[0].setImageAlpha(0);
@@ -252,7 +248,6 @@ public class LightsgameActivity extends AppCompatActivity {
         }
     }
     public void botLampB_onClick(View v){
-        //mp.start();
         if(lights[1]){
             //If light was on, turn off
             lightsI[1].setImageAlpha(0);
@@ -264,7 +259,6 @@ public class LightsgameActivity extends AppCompatActivity {
         }
     }
     public void compB_onClick(View v){
-        //mp.start();
         if(lights[2]){
             //If light was on, turn off
             lightsI[2].setImageAlpha(0);
@@ -276,7 +270,6 @@ public class LightsgameActivity extends AppCompatActivity {
         }
     }
     public void phoneB_onClick(View v){
-        //mp.start();
         if(lights[3]){
             //If light was on, turn off
             lightsI[3].setImageAlpha(0);
@@ -288,7 +281,6 @@ public class LightsgameActivity extends AppCompatActivity {
         }
     }
     public void upstairsB_onClick(View v){
-        //mp.start();
         if(lights[4]){
             //If light was on, turn off
             lightsI[4].setImageAlpha(0);
@@ -300,7 +292,6 @@ public class LightsgameActivity extends AppCompatActivity {
         }
     }
     public void downstairsB_onClick(View v){
-        //mp.start();
         if(lights[5]){
             //If light was on, turn off
             lightsI[5].setImageAlpha(0);
@@ -312,7 +303,6 @@ public class LightsgameActivity extends AppCompatActivity {
         }
     }
     public void smallLampB_onClick(View v){
-        //mp.start();
         if(lights[6]){
             //If light was on, turn off
             lightsI[6].setImageAlpha(0);
@@ -324,7 +314,6 @@ public class LightsgameActivity extends AppCompatActivity {
         }
     }
     public void tvB_onClick(View v){
-        //mp.start();
         if(lights[7]){
             //If light was on, turn off
             lightsI[7].setImageAlpha(0);
@@ -335,24 +324,40 @@ public class LightsgameActivity extends AppCompatActivity {
             lights[7] = true;
         }
     }
-
+//    private void setProgressValue(final int progress) {
+//
+//        // set the progress
+//        progressBar.setProgress(progress);
+//        // thread is used to change the progress value
+//        Thread thread = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    Thread.sleep(1000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//                setProgressValue(progress - 10);
+//            }
+//        });
+//        thread.start();
+//    }
     private void onWin(){
         ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.water);
         winScreen.setVisibility(View.VISIBLE);
     }
 
+
     private void onLose(){
         ConstraintLayout loseScreen = (ConstraintLayout)findViewById(R.id.loseScreen);
         loseScreen.setVisibility(View.VISIBLE);
-    }
-    public void nextGame(View v){
-            Intent intent = new Intent(LightsgameActivity.this, FishgameActivity.class);
-            startActivity(intent);
     }
     public void gameStart(View v){
 
         ConstraintLayout howtoScreen = (ConstraintLayout)findViewById(R.id.howToScreen);
         howtoScreen.setVisibility(View.GONE);
+
+
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setMax(counter*10);
