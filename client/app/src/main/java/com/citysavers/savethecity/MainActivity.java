@@ -90,14 +90,16 @@ public class MainActivity extends AppCompatActivity {
         energyScreen.setVisibility(View.GONE);
     }
 
+    public void city_onClick(View v){
+        //ConstraintLayout cityButton = (ConstraintLayout)findViewById(R.id.city)
+    }
+
     public void playLightsbutton_onClick(View v)
     {
         Intent intent = new Intent(MainActivity.this, LightsgameActivity.class);
         startActivity(intent);
 
     }
-
-
 
     public void playRecyclebutton_onClick(View v)
     {
