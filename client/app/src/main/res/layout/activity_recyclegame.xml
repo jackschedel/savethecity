@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/recycle_game_bckgrd"
+    android:background="@drawable/recycle_newbckgrd"
     android:theme="@style/ThemeOverlay.Savethecity.FullscreenContainer"
     tools:context=".RecyclegameActivity">
 
@@ -14,31 +12,132 @@
          TextureView, etc. -->
     <TextView
         android:id="@+id/fullscreen_content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:keepScreenOn="true"
         android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/fullscreen_content_controls" />
+        android:textStyle="bold" />
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+            style="@style/Widget.Theme.Savethecity.ButtonBar.Fullscreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
 
-    <LinearLayout
-        android:id="@+id/fullscreen_content_controls"
-        style="@style/Widget.Theme.Savethecity.ButtonBar.Fullscreen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="UselessParent" />
+        </LinearLayout>
 
+        <ImageView
+            android:id="@+id/trash"
+            android:layout_width="231dp"
+            android:layout_height="327dp"
+            android:src="@drawable/recycle_game_furnace"
+            android:translationX="-53dp"
+            android:translationY="170dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/furnace"
+            android:layout_width="192dp"
+            android:layout_height="226dp"
+            android:alpha="0"
+            android:onClick="furnace_onClick"
+            android:scaleY="3"
+            android:text="furnace"
+            android:translationX="-53dp"
+            android:translationY="180dp" />
+
+        <Button
+            android:id="@+id/glass"
+            android:layout_width="183dp"
+            android:layout_height="139dp"
+            android:alpha="0"
+            android:onClick="glassBin_onClick"
+            android:scaleX="1"
+            android:text="glass"
+            android:translationX="35dp"
+            android:translationY="410dp" />
+
+        <ImageView
+            android:id="@+id/convey"
+            android:layout_width="357dp"
+            android:layout_height="387dp"
+            android:rotation="-0.4"
+            android:scaleX="1.11"
+            android:src="@drawable/recycle_game_convey"
+            android:translationX="38dp"
+            android:translationY="120dp" />
+
+        <Button
+            android:id="@+id/paper"
+            android:layout_width="183dp"
+            android:layout_height="139dp"
+            android:alpha="0"
+            android:onClick="paperBin_onClick"
+            android:scaleX="1"
+            android:text="paper"
+            android:translationX="215dp"
+            android:translationY="410dp" />
+
+        <ImageView
+            android:id="@+id/item"
+            android:tag=""
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/glass"
+            android:translationX="150dp"
+            android:translationY="250dp" />
+
+        <Button
+            android:id="@+id/organic"
+            android:layout_width="183dp"
+            android:layout_height="139dp"
+            android:alpha="0"
+            android:onClick="orgBin_onClick"
+            android:scaleX="1"
+            android:text="organic"
+            android:translationX="35dp"
+            android:translationY="550dp" />
+
+        <Button
+            android:id="@+id/plastic"
+            android:layout_width="183dp"
+            android:layout_height="139dp"
+            android:alpha="0"
+            android:onClick="plasticBin_onClick"
+            android:scaleX="1"
+            android:text="plastic"
+            android:translationX="215dp"
+            android:translationY="550dp" />
+
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="3"
+            android:scaleY="3"
+            android:text="Time Left: "
+            android:textColor="@color/white"
+            android:translationX="180dp"
+            android:translationY="100dp" />
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/white"
+            android:translationX="180dp"
+            android:translationY="200dp" />
+    </FrameLayout>
+
+</FrameLayout>

@@ -4,16 +4,27 @@ import android.annotation.SuppressLint;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuView;
 
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.DrawableWrapper;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowInsets;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.citysavers.savethecity.databinding.ActivityRecyclegameBinding;
+
+import java.util.Random;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -104,8 +115,13 @@ public class RecyclegameActivity extends AppCompatActivity {
     };
     private ActivityRecyclegameBinding binding;
 
+    public int counter = 30;
+    TextView timer;
+    public boolean running;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        running = true;
         super.onCreate(savedInstanceState);
 
         binding = ActivityRecyclegameBinding.inflate(getLayoutInflater());
@@ -114,18 +130,23 @@ public class RecyclegameActivity extends AppCompatActivity {
         mVisible = true;
         mControlsView = binding.fullscreenContentControls;
         mContentView = binding.fullscreenContent;
+        setRandItem(mControlsView);
+        //calculateTime(mControlsView);
 
-        // Set up the user interaction to manually show or hide the system UI.
-        mContentView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toggle();
+        timer= (TextView) findViewById(R.id.timer);
+
+        new CountDownTimer(counter * 1000, 1000){
+            public void onTick(long millisUntilFinished){
+                if (running) {
+                    timer.setText("Time Left: " + String.valueOf(counter));
+                    counter--;
+                }
             }
-        });
-
-        // Upon interacting with UI controls, delay any scheduled hide()
-        // operations to prevent the jarring behavior of controls going away
-        // while interacting with the UI.
+            public  void onFinish(){
+                timer.setText("WIN!!");
+                gameEnd(true);
+            }
+        }.start();
     }
 
     @Override
@@ -135,7 +156,7 @@ public class RecyclegameActivity extends AppCompatActivity {
         // Trigger the initial hide() shortly after the activity has been
         // created, to briefly hint to the user that UI controls
         // are available.
-        delayedHide(100);
+        delayedHide(0);
     }
 
     private void toggle() {
@@ -183,5 +204,149 @@ public class RecyclegameActivity extends AppCompatActivity {
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    }
+
+    //added functions
+    public void calculateTime(View v){
+        //here it gets value from database and performs calculation
+
+        //as of right now it will return 9
+        TextView timer = findViewById(R.id.timer);
+
+        String time = "Time Left: 9";
+        timer.setText(time);
+
+        Intent intent = getIntent();
+    }
+
+    public void setRandItem(View v){
+        String[] itemArray = new String[15];
+        itemArray[0] = "@drawable/apple";
+        itemArray[1] = "@drawable/bananna";
+        itemArray[2] = "@drawable/bottle";
+        itemArray[3] = "@drawable/box";
+        itemArray[4] = "@drawable/chips";
+        itemArray[5] = "@drawable/fishbones";
+        itemArray[6] = "@drawable/glass";
+        itemArray[7] = "@drawable/glassbottle";
+        itemArray[8] = "@drawable/jar";
+        itemArray[9] = "@drawable/newspaper";
+        itemArray[10] = "@drawable/paper";
+        itemArray[11] = "@drawable/plasticcontainer";
+        itemArray[12] = "@drawable/shoe";
+        itemArray[13] = "@drawable/toothbrush";
+        itemArray[14] = "@drawable/trashbag";
+
+        Random rand = new Random();
+        int upperBound = 15;
+        int int_random = rand.nextInt(upperBound);
+
+        ImageView item = findViewById(R.id.item);
+        int imageResource = getResources().getIdentifier(itemArray[int_random], null, getPackageName());
+        Drawable res = getResources().getDrawable(imageResource);
+        item.setImageDrawable(res);
+        item.setTag(Integer.toString(int_random));
+    }
+
+    public void glassBin_onClick(View v){
+        ImageView item = findViewById(R.id.item);
+        if (item.getTag().toString().equals("6") || item.getTag().toString().equals("7") || item.getTag().toString().equals("8")){
+            //correct sort
+            TextView score = findViewById(R.id.score);
+            int numScore = Integer.parseInt(score.getText().toString());
+            numScore++;
+            score.setText(Integer.toString(numScore));
+        } else {
+            //incorrect sort
+            gameEnd(false);
+        }
+
+        setRandItem(v);
+    }
+    public void paperBin_onClick(View v){
+        ImageView item = findViewById(R.id.item);
+        if (item.getTag().toString().equals("3") || item.getTag().toString().equals("9") || item.getTag().toString().equals("10")){
+            System.out.println("correct");
+            //correct sort
+            TextView score = (TextView) findViewById(R.id.score);
+            int numScore = Integer.parseInt(score.getText().toString());
+            numScore++;
+            score.setText(Integer.toString(numScore));
+
+        } else {
+            //incorrect sort
+            gameEnd(false);
+        }
+
+            setRandItem(v);
+    }
+    public void orgBin_onClick(View v){
+        ImageView item = findViewById(R.id.item);
+        if (item.getTag().toString().equals("0") || item.getTag().toString().equals("1") || item.getTag().toString().equals("5")){
+            System.out.println("correct");
+            //correct sort
+            TextView score = (TextView) findViewById(R.id.score);
+            int numScore = Integer.parseInt(score.getText().toString());
+            numScore++;
+            score.setText(Integer.toString(numScore));
+        } else {
+            //incorrect sort
+            gameEnd(false);
+        }
+
+            setRandItem(v);
+    }
+    public void plasticBin_onClick(View v){
+        ImageView item = findViewById(R.id.item);
+        if (item.getTag().toString().equals("2") || item.getTag().toString().equals("11") || item.getTag().toString().equals("4")){
+            System.out.println("correct");
+            //correct sort
+            TextView score = (TextView) findViewById(R.id.score);
+            int numScore = Integer.parseInt(score.getText().toString());
+            numScore++;
+            score.setText(Integer.toString(numScore));
+        } else {
+            //incorrect sort
+            gameEnd(false);
+        }
+
+            setRandItem(v);
+    }
+    public void furnace_onClick(View v){
+        ImageView item = findViewById(R.id.item);
+        if (item.getTag().toString().equals("12") || item.getTag().toString().equals("13") || item.getTag().toString().equals("14")){
+            System.out.println("correct");
+            //correct sort
+            TextView score = (TextView) findViewById(R.id.score);
+            int numScore = Integer.parseInt(score.getText().toString());
+            numScore++;
+            score.setText(Integer.toString(numScore));
+        } else {
+            //incorrect sort
+            gameEnd(false);
+        }
+
+            setRandItem(v);
+    }
+
+    public void gameEnd(Boolean win){
+        Button g = findViewById(R.id.glass);
+        Button o = findViewById(R.id.organic);
+        Button pa = findViewById(R.id.paper);
+        Button pl = findViewById(R.id.plastic);
+        Button f = findViewById(R.id.furnace);
+        g.setEnabled(false);
+        o.setEnabled(false);
+        pa.setEnabled(false);
+        pl.setEnabled(false);
+        f.setEnabled(false);
+
+        running = false;
+
+        if (win) {
+
+        } else {
+            timer.setText("Fail!!");
+        }
     }
 }
