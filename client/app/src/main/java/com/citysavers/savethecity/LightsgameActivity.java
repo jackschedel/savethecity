@@ -64,7 +64,7 @@ public class LightsgameActivity extends AppCompatActivity {
     public int oth = 0;
     public boolean win = true;
     public ProgressBar progressBar;
-    public int progress = 100;
+    public int progress = 20000;
     public Random rand = new Random();
 
     private final Runnable mHidePart2Runnable = new Runnable() {
@@ -330,24 +330,24 @@ public class LightsgameActivity extends AppCompatActivity {
             lights[7] = true;
         }
     }
-    private void setProgressValue(final int progress) {
-
-        // set the progress
-        progressBar.setProgress(progress);
-        // thread is used to change the progress value
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                setProgressValue(progress + 10);
-            }
-        });
-        thread.start();
-    }
+//    private void setProgressValue(final int progress) {
+//
+//        // set the progress
+//        progressBar.setProgress(progress);
+//        // thread is used to change the progress value
+//        Thread thread = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    Thread.sleep(1000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//                setProgressValue(progress - 10);
+//            }
+//        });
+//        thread.start();
+//    }
     private void onWin(){
 
     }
@@ -355,16 +355,14 @@ public class LightsgameActivity extends AppCompatActivity {
 
     }
     public void gameStart(View v){
-
-        ConstraintLayout tipsScreen = (ConstraintLayout)findViewById(R.id.howToScreen);
-        tipsScreen.setVisibility(View.GONE);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-
+        progressBar.setMax(counter*1000);
         new CountDownTimer(counter*1000, 100){
             int iterations  = 0;
             public void onTick(long millisUntilFinished){
+                progressBar.setProgress(progress);
+                progress -= 100;
                 if(iterations % 10 == 0){
-                    setProgressValue(progress);
                     if(millisUntilFinished > 3000) {
                         int int_random = rand.nextInt(lights.length);
                         lights[int_random] = true;
