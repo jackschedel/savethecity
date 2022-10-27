@@ -173,8 +173,6 @@ public class LightsgameActivity extends AppCompatActivity {
             }
         }
 
-        timer= (TextView) findViewById(R.id.timer);
-
         new CountDownTimer(counter*1000, 1000){
             public void onTick(long millisUntilFinished){
                 timer.setText(String.valueOf(counter));
