@@ -538,13 +538,10 @@ public class FishgameActivity extends AppCompatActivity {
 
         trashCaught[2] = true;
 
-
         if(trashButton3.getBackground() != null){
             score++;
         }
-
         trashButton3.setBackground(null);
-
 
     }
 
@@ -597,8 +594,5 @@ public class FishgameActivity extends AppCompatActivity {
         ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.howToScreen);
         winScreen.setVisibility(View.GONE);
         rungameLoop();
-
     }
-
-
 }
