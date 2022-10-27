@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         int upperBound = 3;
         int randGame = rand.nextInt(upperBound);
 
+
         if(randGame == 0){
             Intent intent = new Intent(MainActivity.this, FishgameActivity.class);
             startActivity(intent);
@@ -109,5 +110,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, LightsgameActivity.class);
             startActivity(intent);
         }
+
     }
+
 }

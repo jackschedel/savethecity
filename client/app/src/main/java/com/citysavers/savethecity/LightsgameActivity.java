@@ -335,10 +335,12 @@ public class LightsgameActivity extends AppCompatActivity {
             lights[7] = true;
         }
     }
+
     private void onWin(){
         ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.water);
         winScreen.setVisibility(View.VISIBLE);
     }
+
     private void onLose(){
         ConstraintLayout loseScreen = (ConstraintLayout)findViewById(R.id.loseScreen);
         loseScreen.setVisibility(View.VISIBLE);
@@ -402,8 +404,7 @@ public class LightsgameActivity extends AppCompatActivity {
 
     public void returnToHome(View v){
 
-        Intent intent = new Intent(LightsgameActivity.this, MainActivity.class);
-        startActivity(intent);
+        finish();
 
     }
 

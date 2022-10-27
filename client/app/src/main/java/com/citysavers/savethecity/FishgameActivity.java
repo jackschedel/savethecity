@@ -545,29 +545,43 @@ public class FishgameActivity extends AppCompatActivity {
 
     }
 
+    boolean ended = false;
+
     private void onFishGrab(){
 
-        ConstraintLayout fishLoseScreen = (ConstraintLayout)findViewById(R.id.fishLoseScreen);
-        fishLoseScreen.setVisibility(View.VISIBLE);
+        if(!ended){
+            ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.fishLoseScreen);
+            winScreen.setVisibility(View.VISIBLE);
+        }
+
+
+
+        ended = true;
     }
 
     private void onTrashMiss(){
+        if(!ended) {
+            ConstraintLayout winScreen = (ConstraintLayout) findViewById(R.id.loseScreen);
+            winScreen.setVisibility(View.VISIBLE);
+        }
 
-        ConstraintLayout loseScreen = (ConstraintLayout)findViewById(R.id.loseScreen);
-        loseScreen.setVisibility(View.VISIBLE);
+        ended = true;
     }
 
     private void onWin(){
 
-        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.water);
-        winScreen.setVisibility(View.VISIBLE);
+        if(!ended){
+            ConstraintLayout winScreen = (ConstraintLayout) findViewById(R.id.water);
+            winScreen.setVisibility(View.VISIBLE);
+        }
+
+        ended = true;
     }
 
 
     public void returnToHome(View v){
 
-        Intent intent = new Intent(FishgameActivity.this, MainActivity.class);
-        startActivity(intent);
+        finish();
 
     }
     public void nextGame(View v){
