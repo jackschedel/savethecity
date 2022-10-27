@@ -547,14 +547,14 @@ public class FishgameActivity extends AppCompatActivity {
 
     private void onFishGrab(){
 
-        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.fishLoseScreen);
-        winScreen.setVisibility(View.VISIBLE);
+        ConstraintLayout fishLoseScreen = (ConstraintLayout)findViewById(R.id.fishLoseScreen);
+        fishLoseScreen.setVisibility(View.VISIBLE);
     }
 
     private void onTrashMiss(){
 
-        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.loseScreen);
-        winScreen.setVisibility(View.VISIBLE);
+        ConstraintLayout loseScreen = (ConstraintLayout)findViewById(R.id.loseScreen);
+        loseScreen.setVisibility(View.VISIBLE);
     }
 
     private void onWin(){
@@ -566,7 +566,8 @@ public class FishgameActivity extends AppCompatActivity {
 
     public void returnToHome(View v){
 
-        finish();
+        Intent intent = new Intent(FishgameActivity.this, MainActivity.class);
+        startActivity(intent);
 
     }
     public void nextGame(View v){
