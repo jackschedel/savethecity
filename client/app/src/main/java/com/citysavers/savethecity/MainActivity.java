@@ -15,6 +15,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.citysavers.savethecity.databinding.ActivityMainBinding;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
@@ -90,33 +92,25 @@ public class MainActivity extends AppCompatActivity {
         energyScreen.setVisibility(View.GONE);
     }
 
-    public void city_onClick(View v){
-        //ConstraintLayout cityButton = (ConstraintLayout)findViewById(R.id.city)
-    }
 
-    public void playLightsbutton_onClick(View v)
-    {
-        Intent intent = new Intent(MainActivity.this, LightsgameActivity.class);
-        startActivity(intent);
+    public void startRandomGame(View v){
 
-    }
-
-    public void playRecyclebutton_onClick(View v)
-    {
-        Intent intent = new Intent(MainActivity.this, RecyclegameActivity.class);
-        startActivity(intent);
-
-    }
-
-    public void playFishbutton_onClick(View v)
-    {
-        //setContentView(R.layout.fragment_fishgame);
+        Random rand = new Random();
+        int upperBound = 3;
+        int randGame = rand.nextInt(upperBound);
 
 
-        Intent intent = new Intent(MainActivity.this, FishgameActivity.class);
-        startActivity(intent);
+        if(randGame == 0){
+            Intent intent = new Intent(MainActivity.this, FishgameActivity.class);
+            startActivity(intent);
+        }else if(randGame == 1){
+            Intent intent = new Intent(MainActivity.this, RecyclegameActivity.class);
+            startActivity(intent);
+        }else{
+            Intent intent = new Intent(MainActivity.this, LightsgameActivity.class);
+            startActivity(intent);
+        }
 
     }
-
 
 }

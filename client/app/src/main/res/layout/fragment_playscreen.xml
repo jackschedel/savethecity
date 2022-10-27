@@ -8,40 +8,23 @@
     tools:context=".ui.playscreen.PlayscreenFragment">
 
     <Button
-        android:id="@+id/playLightsbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
-        android:onClick="playLightsbutton_onClick"
-        android:text="Lights"
+        android:id="@+id/startButton"
+        android:layout_width="102dp"
+        android:layout_height="103dp"
+        android:layout_marginTop="296dp"
+        android:alpha="0"
+        android:onClick="startRandomGame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/playFishbutton"
+    <ImageView
+        android:id="@+id/start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:onClick="playFishbutton_onClick"
-        android:text="Fish"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:src="@drawable/start1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/playRecyclebutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:onClick="playRecyclebutton_onClick"
-        android:text="Recycle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
