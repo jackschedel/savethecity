@@ -505,6 +505,9 @@ public class FishgameActivity extends AppCompatActivity {
     public void fishButton6_onClick(View v){
         onFishGrab();
     }
+    public void fishButton7_onClick(View v){
+        onFishGrab();
+    }
 
     public void trashButton1_onClick(View v) {
         ImageButton trashButton1 = (ImageButton)findViewById(R.id.trashButton1);
