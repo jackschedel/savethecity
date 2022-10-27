@@ -35,9 +35,8 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-        // TODO: TEMP FOR JACK TESTING
-        Intent intent = new Intent(MainActivity.this, FishgameActivity.class);
-        startActivity(intent);
+        // Intent intent = new Intent(MainActivity.this, FishgameActivity.class);
+        // startActivity(intent);
 
 
     }

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -229,6 +230,9 @@ public class FishgameActivity extends AppCompatActivity {
                  */
 
 
+
+
+
                 if(path1X < -360 && count == 0){
 
 
@@ -366,7 +370,6 @@ public class FishgameActivity extends AppCompatActivity {
                 buttonArray[0].setX(path1X);
                 buttonArray[0].setY(path1Y);
 
-                float button1X = path2X + offsetVar;
                 buttonArray[1].setX(path2X + offsetVar);
                 buttonArray[1].setY(path2Y - offsetVar);
 
@@ -517,6 +520,7 @@ public class FishgameActivity extends AppCompatActivity {
 
         trashButton2.setBackground(null);
 
+
     }
 
     public void trashButton3_onClick(View v) {
@@ -531,23 +535,32 @@ public class FishgameActivity extends AppCompatActivity {
 
         trashButton3.setBackground(null);
 
+
     }
 
     private void onFishGrab(){
 
-
-
-        finish();
+        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.fishLoseScreen);
+        winScreen.setVisibility(View.VISIBLE);
     }
 
     private void onTrashMiss(){
 
-        finish();
+        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.trashLoseScreen);
+        winScreen.setVisibility(View.VISIBLE);
     }
 
     private void onWin(){
 
+        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.winScreen);
+        winScreen.setVisibility(View.VISIBLE);
+    }
+
+
+    public void returnToHome(View v){
+
         finish();
+
     }
 
 
