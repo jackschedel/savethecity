@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 R.id.navigation_tips, R.id.navigation_playscreen, R.id.navigation_city)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
         // Intent intent = new Intent(MainActivity.this, FishgameActivity.class);

@@ -25,8 +25,6 @@ public class PlayscreenFragment extends Fragment {
         binding = FragmentPlayscreenBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textPlayscreen;
-        playscreenViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

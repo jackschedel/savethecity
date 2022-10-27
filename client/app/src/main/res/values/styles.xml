@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="Widget.Theme.Savethecity.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
+    <style name="Widget.Theme.Savethecity.ActionBar.Fullscreen" parent="Theme.AppCompat.NoActionBar">
         <item name="android:background">@color/black_overlay</item>
     </style>
 
