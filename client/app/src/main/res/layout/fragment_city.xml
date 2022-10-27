@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <FrameLayout
         android:id="@+id/bround"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -52,6 +52,12 @@
             android:src="@drawable/city_screen_lights2"
             android:alpha="0"
             />
+
+        <ImageView
+            android:id="@+id/meters"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/partial_bar" />
 
 
     </FrameLayout>
