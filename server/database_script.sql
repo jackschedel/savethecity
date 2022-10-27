@@ -36,8 +36,8 @@ CREATE TABLE accounts(
 
 CREATE TABLE game_records(
 	account_id CHAR(60) NOT NULL,
-	FOREIGN KEY (account_id) REFERENCES accounts(id),
 	game_played ENUM('lights', 'water', 'trash') NOT NULL,
+	diff_played FLOAT UNSIGNED NOT NULL,
 	winrate FLOAT UNSIGNED NOT NULL,
 	meter FLOAT UNSIGNED NOT NULL,
 	did_win BOOLEAN NOT NULL
