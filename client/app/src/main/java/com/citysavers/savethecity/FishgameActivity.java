@@ -548,22 +548,37 @@ public class FishgameActivity extends AppCompatActivity {
 
     }
 
+    boolean ended = false;
+
     private void onFishGrab(){
 
-        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.fishLoseScreen);
-        winScreen.setVisibility(View.VISIBLE);
+        if(!ended){
+            ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.fishLoseScreen);
+            winScreen.setVisibility(View.VISIBLE);
+        }
+
+
+
+        ended = true;
     }
 
     private void onTrashMiss(){
+        if(!ended) {
+            ConstraintLayout winScreen = (ConstraintLayout) findViewById(R.id.loseScreen);
+            winScreen.setVisibility(View.VISIBLE);
+        }
 
-        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.loseScreen);
-        winScreen.setVisibility(View.VISIBLE);
+        ended = true;
     }
 
     private void onWin(){
 
-        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.water);
-        winScreen.setVisibility(View.VISIBLE);
+        if(!ended){
+            ConstraintLayout winScreen = (ConstraintLayout) findViewById(R.id.water);
+            winScreen.setVisibility(View.VISIBLE);
+        }
+
+        ended = true;
     }
 
 
