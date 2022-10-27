@@ -14,7 +14,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowInsets;
@@ -44,6 +43,9 @@ public class FishgameActivity extends AppCompatActivity {
      * Some older devices needs a small delay between UI widget updates
      * and a change of the status and navigation bar.
      */
+
+    boolean[] trashCaught = {false, false, false};
+
     private static final int UI_ANIMATION_DELAY = 300;
     private final Handler mHideHandler = new Handler(Looper.myLooper());
     private View mContentView;
@@ -153,6 +155,9 @@ public class FishgameActivity extends AppCompatActivity {
                 (ImageButton)findViewById(R.id.fishButton6),
                 (ImageButton)findViewById(R.id.fishButton7)};
 
+
+
+
         List<ImageButton> buttonList = Arrays.asList(buttonArray);
 
         Collections.shuffle(buttonList);
@@ -161,7 +166,7 @@ public class FishgameActivity extends AppCompatActivity {
 
         ImageView riverImageElem2 = (ImageView)findViewById(R.id.riverImage2);
 
-        double speedVar = 1.0;
+        double speedVar = 2.0;
 
         new CountDownTimer((long) (25200* (1/speedVar)), 1){
 
@@ -186,11 +191,182 @@ public class FishgameActivity extends AppCompatActivity {
 
             double angleOffset = .74;
 
+            int count = 0;
+
+            int offsetTime = 125;
+
             public void onTick(long millisUntilFinished) {
+
+                /*
+                if(iterations ==  (int) (270/speedVar))
+                    Log.e("", "1");
+
+                if(iterations ==  (int) ((300 + offsetTime)/speedVar))
+                    Log.e("", "2");
+
+                if(iterations ==  (int) ((300 + offsetTime * 2)/speedVar))
+                    Log.e("", "3");
+
+                if(iterations ==  (int) ((300 + offsetTime * 3)/speedVar))
+                    Log.e("", "4");
+
+                if(iterations ==  (int) ((300 + offsetTime * 4)/speedVar))
+                    Log.e("", "5");
+
+                if(iterations ==  (int) ((300 + offsetTime * 5)/speedVar))
+                    Log.e("", "6");
+
+                if(iterations ==  (int) ((300 + offsetTime * 6)/speedVar))
+                    Log.e("", "7");
+
+                if(iterations ==  (int) ((300 + offsetTime * 7)/speedVar))
+                    Log.e("", "8");
+
+                if(iterations ==  (int) ((300 + offsetTime * 8)/speedVar))
+                    Log.e("", "9");
+
+
+                 */
+
+
+                if(path1X < -360 && count == 0){
+
+
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton1"))
+                        if(!trashCaught[0])
+                            onTrashMiss();
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton2"))
+                        if(!trashCaught[1])
+                            onTrashMiss();
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton3"))
+                        if(!trashCaught[2])
+                            onTrashMiss();
+
+                    count++;
+
+
+
+                }
+
+
+                if(path2X + offsetVar < -360 && count == 1){
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton1"))
+                        if(!trashCaught[0])
+                            onTrashMiss();
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton2"))
+                        if(!trashCaught[1])
+                            onTrashMiss();
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton3"))
+                        if(!trashCaught[2])
+                            onTrashMiss();
+
+                    count++;
+                }
+
+
+                if(path3X + 2 * offsetVar < -360 && count == 2){
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton1"))
+                        if(!trashCaught[0])
+                            onTrashMiss();
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton2"))
+                        if(!trashCaught[1])
+                            onTrashMiss();
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton3"))
+                        if(!trashCaught[2])
+                            onTrashMiss();
+
+                    count++;
+                }
+
+                if(path1X + 3 * offsetVar < -360 && count == 3){
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton1"))
+                        if(!trashCaught[0])
+                            onTrashMiss();
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton2"))
+                        if(!trashCaught[1])
+                            onTrashMiss();
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton3"))
+                        if(!trashCaught[2])
+                            onTrashMiss();
+
+                    count++;
+                }
+
+                if(path2X + 4 * offsetVar < -360 && count == 4){
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton1"))
+                        if(!trashCaught[0])
+                            onTrashMiss();
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton2"))
+                        if(!trashCaught[1])
+                            onTrashMiss();
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton3"))
+                        if(!trashCaught[2])
+                            onTrashMiss();
+
+                    count++;
+                }
+
+                if(path3X + 5 * offsetVar < -360 && count == 5){
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton1"))
+                        if(!trashCaught[0])
+                            onTrashMiss();
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton2"))
+                        if(!trashCaught[1])
+                            onTrashMiss();
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton3"))
+                        if(!trashCaught[2])
+                            onTrashMiss();
+
+                    count++;
+                }
+
+                if(path1X + 6 * offsetVar < -360 && count == 6){
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton1"))
+                        if(!trashCaught[0])
+                            onTrashMiss();
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton2"))
+                        if(!trashCaught[1])
+                            onTrashMiss();
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton3"))
+                        if(!trashCaught[2])
+                            onTrashMiss();
+
+                    count++;
+                }
+
+                if(path2X + 7 * offsetVar < -360 && count == 7){
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton1"))
+                        if(!trashCaught[0])
+                            onTrashMiss();
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton2"))
+                        if(!trashCaught[1])
+                            onTrashMiss();
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton3"))
+                        if(!trashCaught[2])
+                            onTrashMiss();
+
+                    count++;
+                }
+
+                if(path3X + 8 * offsetVar < -360 && count == 8){
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton1"))
+                        if(!trashCaught[0])
+                            onTrashMiss();
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton2"))
+                        if(!trashCaught[1])
+                            onTrashMiss();
+                    if(getResources().getResourceEntryName(buttonArray[count].getId()).equals("trashButton3"))
+                        if(!trashCaught[2])
+                            onTrashMiss();
+
+                    count++;
+                }
+
 
                 buttonArray[0].setX(path1X);
                 buttonArray[0].setY(path1Y);
 
+                float button1X = path2X + offsetVar;
                 buttonArray[1].setX(path2X + offsetVar);
                 buttonArray[1].setY(path2Y - offsetVar);
 
@@ -264,7 +440,7 @@ public class FishgameActivity extends AppCompatActivity {
                 iterations++;
             }
             public  void onFinish(){
-
+                onWin();
             }
         }.start();
 
@@ -298,14 +474,29 @@ public class FishgameActivity extends AppCompatActivity {
 
 
     public void fishButton1_onClick(View v){
-        onLose();
+        onFishGrab();
     }
 
+    public void fishButton2_onClick(View v){
+        onFishGrab();
+    }
 
+    public void fishButton3_onClick(View v){
+        onFishGrab();
+    }
+
+    public void fishButton5_onClick(View v){
+        onFishGrab();
+    }
+
+    public void fishButton6_onClick(View v){
+        onFishGrab();
+    }
 
     public void trashButton1_onClick(View v) {
         ImageButton trashButton1 = (ImageButton)findViewById(R.id.trashButton1);
 
+        trashCaught[0] = true;
 
         if(trashButton1.getBackground() != null){
             score++;
@@ -313,14 +504,50 @@ public class FishgameActivity extends AppCompatActivity {
 
         trashButton1.setBackground(null);
 
+    }
 
-        Log.e("owo", "test " + score);
+    public void trashButton2_onClick(View v) {
+        ImageButton trashButton2 = (ImageButton)findViewById(R.id.trashButton2);
+
+        trashCaught[1] = true;
+
+        if(trashButton2.getBackground() != null){
+            score++;
+        }
+
+        trashButton2.setBackground(null);
 
     }
 
-    private void onLose(){
+    public void trashButton3_onClick(View v) {
+        ImageButton trashButton3 = (ImageButton)findViewById(R.id.trashButton3);
+
+        trashCaught[2] = true;
 
 
+        if(trashButton3.getBackground() != null){
+            score++;
+        }
+
+        trashButton3.setBackground(null);
+
+    }
+
+    private void onFishGrab(){
+
+
+
+        finish();
+    }
+
+    private void onTrashMiss(){
+
+        finish();
+    }
+
+    private void onWin(){
+
+        finish();
     }
 
 
