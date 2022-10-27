@@ -6,16 +6,21 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuView;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.DrawableWrapper;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowInsets;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.citysavers.savethecity.databinding.ActivityRecyclegameBinding;
 
@@ -110,6 +115,9 @@ public class RecyclegameActivity extends AppCompatActivity {
     };
     private ActivityRecyclegameBinding binding;
 
+    public int counter = 9;
+    TextView timer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,7 +128,30 @@ public class RecyclegameActivity extends AppCompatActivity {
         mVisible = true;
         mControlsView = binding.fullscreenContentControls;
         mContentView = binding.fullscreenContent;
-        //setItem(mControlsView);
+        setRandItem(mControlsView);
+        //calculateTime(mControlsView);
+
+        timer= (TextView) findViewById(R.id.timer);
+
+        new CountDownTimer(9000, 1000){
+            public void onTick(long millisUntilFinished){
+                timer.setText("Time Left: " + String.valueOf(counter));
+                counter--;
+            }
+            public  void onFinish(){
+                timer.setText("FINISH!!");
+                Button g = findViewById(R.id.glass);
+                Button o = findViewById(R.id.organic);
+                Button pa = findViewById(R.id.paper);
+                Button pl = findViewById(R.id.plastic);
+                Button f = findViewById(R.id.furnace);
+                g.setEnabled(false);
+                o.setEnabled(false);
+                pa.setEnabled(false);
+                pl.setEnabled(false);
+                f.setEnabled(false);
+            }
+        }.start();
     }
 
     @Override
@@ -181,10 +212,22 @@ public class RecyclegameActivity extends AppCompatActivity {
     }
 
     //added functions
-    public void setItem(View v){
+    public void calculateTime(View v){
+        //here it gets value from database and performs calculation
+
+        //as of right now it will return 9
+        TextView timer = findViewById(R.id.timer);
+
+        String time = "Time Left: 9";
+        timer.setText(time);
+
+        Intent intent = getIntent();
+    }
+
+    public void setRandItem(View v){
         String[] itemArray = new String[15];
         itemArray[0] = "@drawable/apple";
-        itemArray[1] = "@drawable/banana";
+        itemArray[1] = "@drawable/bananna";
         itemArray[2] = "@drawable/bottle";
         itemArray[3] = "@drawable/box";
         itemArray[4] = "@drawable/chips";
@@ -200,18 +243,87 @@ public class RecyclegameActivity extends AppCompatActivity {
         itemArray[14] = "@drawable/trashbag";
 
         Random rand = new Random();
-        int upperBound = 14;
+        int upperBound = 15;
         int int_random = rand.nextInt(upperBound);
+
+        System.out.println(itemArray[int_random]);
 
         ImageView item = findViewById(R.id.item);
         int imageResource = getResources().getIdentifier(itemArray[int_random], null, getPackageName());
         Drawable res = getResources().getDrawable(imageResource);
         item.setImageDrawable(res);
-
     }
 
-    public void sort_onClick(View v){
-        ImageView item = (ImageView) findViewById(R.id.item);
-        //if item
+    public void glassBin_onClick(View v){
+        ImageView item = findViewById(R.id.item);
+        Button bin = findViewById(R.id.glass);
+        if (item.getDrawable() == Drawable.createFromPath("@drawable/glass") ||
+                item.getDrawable() == Drawable.createFromPath("@drawable/glassbottle") ||
+                item.getDrawable() == Drawable.createFromPath("@drawable/jar")){
+            //correct sort
+
+
+        } else {
+            //incorrect sort
+
+        }
+
+        setRandItem(v);
+    }
+    public void paperBin_onClick(View v){
+        ImageView item = findViewById(R.id.item);
+        Button bin = findViewById(R.id.paper);
+        if (item.getDrawable() == Drawable.createFromPath("@drawable/paper") ||
+                item.getDrawable() == Drawable.createFromPath("@drawable/newspaper") ||
+                item.getDrawable() == Drawable.createFromPath("@drawable/box")){
+            //correct sort
+        } else {
+            //incorrect sort
+
+        }
+
+            setRandItem(v);
+    }
+    public void orgBin_onClick(View v){
+        ImageView item = findViewById(R.id.item);
+        Button bin = findViewById(R.id.organic);
+        if (item.getDrawable() == Drawable.createFromPath("@drawable/apple") ||
+                item.getDrawable() == Drawable.createFromPath("@drawable/fishbones") ||
+                item.getDrawable() == Drawable.createFromPath("@drawable/banana")){
+            //correct sort
+        } else {
+            //incorrect sort
+
+        }
+
+            setRandItem(v);
+    }
+    public void plasticBin_onClick(View v){
+        ImageView item = findViewById(R.id.item);
+        Button bin = findViewById(R.id.plastic);
+        if (item.getDrawable() == Drawable.createFromPath("@drawable/chips") ||
+                item.getDrawable() == Drawable.createFromPath("@drawable/bottle") ||
+                item.getDrawable() == Drawable.createFromPath("@drawable/plasticcontainer")){
+            //correct sort
+        } else {
+            //incorrect sort
+
+        }
+
+            setRandItem(v);
+    }
+    public void furnace_onClick(View v){
+        ImageView item = findViewById(R.id.item);
+        Button bin = findViewById(R.id.furnace);
+        if (item.getDrawable() == Drawable.createFromPath("@drawable/toothbrush") ||
+                item.getDrawable() == Drawable.createFromPath("@drawable/shoe") ||
+                item.getDrawable() == Drawable.createFromPath("@drawable/trashbag")){
+            //correct sort
+        } else {
+            //incorrect sort
+
+        }
+
+            setRandItem(v);
     }
 }
