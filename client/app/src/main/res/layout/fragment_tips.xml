@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tipsScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.tips.TipsFragment">
@@ -14,11 +15,11 @@
 
     <Button
         android:id="@+id/waterB"
-        android:layout_width="321dp"
-        android:layout_height="120dp"
+        android:layout_width="280dp"
+        android:layout_height="117dp"
         android:layout_marginStart="42dp"
         android:layout_marginEnd="42dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="15dp"
         android:onClick="waterB_onClick"
         android:text="Button"
         app:layout_constraintBottom_toTopOf="@+id/healthB"
@@ -27,11 +28,11 @@
 
     <Button
         android:id="@+id/healthB"
-        android:layout_width="318dp"
-        android:layout_height="122dp"
+        android:layout_width="275dp"
+        android:layout_height="114dp"
         android:layout_marginStart="44dp"
         android:layout_marginEnd="44dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="15dp"
         android:onClick="healthB_onClick"
         android:text="Button"
         app:layout_constraintBottom_toTopOf="@+id/pollutionB"
@@ -40,9 +41,9 @@
 
     <Button
         android:id="@+id/pollutionB"
-        android:layout_width="319dp"
-        android:layout_height="122dp"
-        android:layout_marginBottom="20dp"
+        android:layout_width="281dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="15dp"
         android:onClick="pollutionB_onClick"
         android:text="Button"
         app:layout_constraintBottom_toTopOf="@+id/energyB"
@@ -51,9 +52,9 @@
 
     <Button
         android:id="@+id/energyB"
-        android:layout_width="317dp"
-        android:layout_height="121dp"
-        android:layout_marginBottom="60dp"
+        android:layout_width="286dp"
+        android:layout_height="105dp"
+        android:layout_marginBottom="50dp"
         android:onClick="energyB_onClick"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
@@ -68,24 +69,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/learn_more" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/health"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"/>
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/learn_more_3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/pollution"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"/>
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/learn_more_2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/energy"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"/>
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/learn_more_4" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

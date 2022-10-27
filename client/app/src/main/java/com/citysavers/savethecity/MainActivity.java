@@ -7,6 +7,7 @@ import android.view.View;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -40,7 +41,29 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    public void waterB_onClick(View v){
+        ConstraintLayout waterScreen = (ConstraintLayout)findViewById(R.id.water);
+        ConstraintLayout tipsScreen = (ConstraintLayout)findViewById(R.id.tipsScreen);
+        waterScreen.setVisibility(View.VISIBLE);
+        tipsScreen.setVisibility(View.GONE);
 
+
+    }
+    public void healthB_onClick(View v){
+        ConstraintLayout healthScreen = (ConstraintLayout)findViewById(R.id.health);
+        healthScreen.setVisibility(View.VISIBLE);
+
+    }
+    public void pollutionB_onClick(View v){
+        ConstraintLayout pollutionScreen = (ConstraintLayout)findViewById(R.id.pollution);
+        pollutionScreen.setVisibility(View.VISIBLE);
+
+    }
+    public void energyB_onClick(View v){
+        ConstraintLayout energyScreen = (ConstraintLayout)findViewById(R.id.energy);
+        energyScreen.setVisibility(View.VISIBLE);
+
+    }
 
     public void playLightsbutton_onClick(View v)
     {
