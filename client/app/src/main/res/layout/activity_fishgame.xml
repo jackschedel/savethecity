@@ -1,47 +1,417 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/fullscreenBackgroundColor"
+    android:background="@drawable/fish_game_bckgrd"
     android:theme="@style/ThemeOverlay.Savethecity.FullscreenContainer"
     tools:context=".FishgameActivity">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
-    <TextView
-        android:id="@+id/fullscreen_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:keepScreenOn="true"
-        android:textSize="50sp"
-        android:textStyle="bold" />
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
-    <FrameLayout
+
+
+    <ImageView
+        android:id="@+id/riverImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fish_game_river1" />
+
+    <ImageView
+        android:id="@+id/riverImage2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fish_game_river2" />
+
+    <ImageButton
+        android:id="@+id/trashButton2"
+        android:layout_width="64dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="184dp"
+        android:layout_marginEnd="108dp"
+        android:alpha="1.0"
+        android:background="@drawable/bottle"
+        android:contentDescription="TODO"
+        android:onClick="trashButton2_onClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullscreen_content"
+        app:srcCompat="@null"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/fishButton1"
+        android:layout_width="154dp"
+        android:layout_height="103dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="172dp"
+        android:alpha="1.0"
+        android:background="@drawable/fish_game_orange"
+        android:contentDescription="TODO"
+        android:onClick="fishButton1_onClick"
+        android:rotation="-25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullscreen_content"
+        app:srcCompat="@null"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/fishButton2"
+        android:layout_width="151dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="156dp"
+        android:layout_marginEnd="172dp"
+        android:alpha="1.0"
+        android:background="@drawable/fish_game_pink"
+        android:contentDescription="TODO"
+        android:onClick="fishButton2_onClick"
+        android:rotation="-25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullscreen_content"
+        app:srcCompat="@null"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/fishButton3"
+        android:layout_width="164dp"
+        android:layout_height="119dp"
+        android:layout_marginTop="256dp"
+        android:layout_marginEnd="196dp"
+        android:alpha="1.0"
+        android:background="@drawable/fish_game_seaweed"
+        android:contentDescription="TODO"
+        android:onClick="fishButton3_onClick"
+        android:rotation="-25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullscreen_content"
+        app:srcCompat="@null"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/fishButton5"
+        android:layout_width="105dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="340dp"
+        android:layout_marginEnd="244dp"
+        android:alpha="1.0"
+        android:background="@drawable/fish_game_shell"
+        android:contentDescription="TODO"
+        android:onClick="fishButton5_onClick"
+        android:rotation="-25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullscreen_content"
+        app:srcCompat="@null"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/fishButton6"
+        android:layout_width="105dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="312dp"
+        android:layout_marginEnd="124dp"
+        android:alpha="1.0"
+        android:background="@drawable/fish_game_starfish"
+        android:contentDescription="TODO"
+        android:onClick="fishButton6_onClick"
+        android:rotation="-25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullscreen_content"
+        app:srcCompat="@null"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/fishButton7"
+        android:layout_width="141dp"
+        android:layout_height="109dp"
+        android:layout_marginTop="432dp"
+        android:layout_marginEnd="208dp"
+        android:alpha="1.0"
+        android:background="@drawable/fish_game_striped"
+        android:contentDescription="TODO"
+        android:onClick="fishButton7_onClick"
+        android:rotation="-25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullscreen_content"
+        app:srcCompat="@null"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/trashButton3"
+        android:layout_width="64dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="312dp"
+        android:layout_marginEnd="196dp"
+        android:alpha="1.0"
+        android:background="@drawable/jar"
+        android:contentDescription="TODO"
+        android:onClick="trashButton3_onClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullscreen_content"
+        app:srcCompat="@null"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/trashButton1"
+        android:layout_width="64dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="72dp"
+        android:alpha="1.0"
+        android:background="@drawable/glassbottle"
+        android:contentDescription="TODO"
+        android:onClick="trashButton1_onClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullscreen_content"
+        app:srcCompat="@null"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fishLoseScreen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:id="@+id/fullscreen_content_controls"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent"/>
-
-        <Button
-            android:id="@+id/fishGameButton1"
+        <View
+            android:id="@+id/fishLoseScreenBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="fishGameButton1_onClick"
-            android:text="Test" />
+            android:background="#BA3343"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </FrameLayout>
+        <TextView
+            android:id="@+id/fishLoseOhNo"
+            android:layout_width="405dp"
+            android:layout_height="102dp"
+            android:layout_marginBottom="400dp"
+            android:text="Oh No!"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/fishloseTip"
+            android:layout_width="405dp"
+            android:layout_height="102dp"
+            android:text="tips are here for grabbing fish"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/fishloseScreenContinue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:onClick="returnToHome"
+            android:text="Continue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/trashLoseScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/trashLoseScreenBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#BA3343"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/trashLoseOhNo"
+            android:layout_width="405dp"
+            android:layout_height="102dp"
+            android:layout_marginBottom="400dp"
+            android:text="Oh No!"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/trashloseTip"
+            android:layout_width="405dp"
+            android:layout_height="102dp"
+            android:text="tips are here for missing trash"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/trashloseScreenContinue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:onClick="returnToHome"
+            android:text="Continue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/howToScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/howToScreenBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#35C698"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/howToPlay"
+            android:layout_width="405dp"
+            android:layout_height="400dp"
+            android:layout_marginBottom="100dp"
+            android:text="Catch the fish! Leave the fish alone."
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:id="@+id/howToScreenContinue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:onClick="runGame"
+            android:text="Continue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/winScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/winFishScreenBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#6DB33B"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/winScreenOhNo"
+            android:layout_width="405dp"
+            android:layout_height="102dp"
+            android:layout_marginBottom="400dp"
+            android:text="Nice Job!"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/winFishTip"
+            android:layout_width="405dp"
+            android:layout_height="102dp"
+            android:text="tips are here"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/winScreenContinue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:onClick="returnToHome"
+            android:text="Continue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/fullscreen_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/fullscreen_content_controls"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/fullscreen_content_controls"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullscreen_content"
+        tools:ignore="UselessParent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
