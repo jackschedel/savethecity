@@ -7,8 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -18,10 +16,8 @@ import android.os.Looper;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowInsets;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.citysavers.savethecity.databinding.ActivityLightsgameBinding;
 
@@ -347,7 +343,7 @@ public class LightsgameActivity extends AppCompatActivity {
 //        thread.start();
 //    }
     private void onWin(){
-        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.winScreen);
+        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.water);
         winScreen.setVisibility(View.VISIBLE);
     }
 

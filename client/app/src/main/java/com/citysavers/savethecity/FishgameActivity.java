@@ -561,7 +561,7 @@ public class FishgameActivity extends AppCompatActivity {
 
     private void onWin(){
 
-        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.winScreen);
+        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.water);
         winScreen.setVisibility(View.VISIBLE);
     }
 
