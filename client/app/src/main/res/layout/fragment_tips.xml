@@ -6,63 +6,69 @@
     android:layout_height="match_parent"
     tools:context=".ui.tips.TipsFragment">
 
-    <Button
-        android:id="@+id/waterB"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
-        android:layout_marginEnd="158dp"
+        android:src="@drawable/learn_more_5" />
+
+    <Button
+        android:id="@+id/waterB"
+        android:layout_width="321dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="waterB_onClick"
         android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/healthB"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="168dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/healthB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="158dp"
+        android:layout_width="318dp"
+        android:layout_height="122dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="healthB_onClick"
         android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/pollutionB"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/waterB" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/pollutionB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="158dp"
+        android:layout_width="319dp"
+        android:layout_height="122dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="pollutionB_onClick"
         android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/energyB"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/healthB" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/energyB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="158dp"
+        android:layout_width="317dp"
+        android:layout_height="121dp"
+        android:layout_marginBottom="60dp"
+        android:onClick="energyB_onClick"
         android:text="Button"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pollutionB" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/water"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/health"

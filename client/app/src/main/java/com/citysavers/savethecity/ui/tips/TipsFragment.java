@@ -24,8 +24,6 @@ public class TipsFragment extends Fragment {
         binding = FragmentTipsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textTips;
-        tipsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
