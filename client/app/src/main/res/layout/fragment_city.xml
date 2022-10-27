@@ -19,4 +19,48 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/bround"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/city_screen_dirty">
+
+        <ImageView
+            android:id="@+id/river"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/city_screen_river"
+            android:alpha="0" />
+        <ImageView
+            android:id="@+id/tree"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/city_screen_tree"
+            android:alpha="0" />
+        <ImageView
+            android:id="@+id/panel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/city_screen_panel"
+            android:alpha="0"
+            />
+        <ImageView
+            android:id="@+id/lights"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/city_screen_lights2"
+            android:alpha="0"
+            />
+
+        <ImageView
+            android:id="@+id/meters"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/partial_bar" />
+
+
+    </FrameLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
