@@ -21,9 +21,9 @@ public class CityFragment extends Fragment {
 
     private FragmentCityBinding binding;
 
-    public double recycle_meter = 0.99;
-    public double water_meter = 0.99;
-    public double lights_meter = 0.99;
+    public double recycle_meter = 0.9;
+    public double water_meter = 0.5;
+    public double lights_meter = 0.5;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
