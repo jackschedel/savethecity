@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -115,7 +116,7 @@ public class RecyclegameActivity extends AppCompatActivity {
     };
     private ActivityRecyclegameBinding binding;
 
-    public int counter = 30;
+    public int counter = 10;
     TextView timer;
     public boolean running;
 
@@ -130,23 +131,7 @@ public class RecyclegameActivity extends AppCompatActivity {
         mVisible = true;
         mControlsView = binding.fullscreenContentControls;
         mContentView = binding.fullscreenContent;
-        setRandItem(mControlsView);
-        //calculateTime(mControlsView);
 
-        timer= (TextView) findViewById(R.id.timer);
-
-        new CountDownTimer(counter * 1000, 1000){
-            public void onTick(long millisUntilFinished){
-                if (running) {
-                    timer.setText("Time Left: " + String.valueOf(counter));
-                    counter--;
-                }
-            }
-            public  void onFinish(){
-                timer.setText("WIN!!");
-                gameEnd(true);
-            }
-        }.start();
     }
 
     @Override
@@ -344,9 +329,52 @@ public class RecyclegameActivity extends AppCompatActivity {
         running = false;
 
         if (win) {
-
+            onWin();
         } else {
-            timer.setText("Fail!!");
+            onLose();
         }
     }
+
+    private void onLose(){
+        ConstraintLayout loseScreen = (ConstraintLayout)findViewById(R.id.loseScreen);
+        loseScreen.setVisibility(View.VISIBLE);
+    }
+
+    private void onWin(){
+        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.winScreen);
+        winScreen.setVisibility(View.VISIBLE);
+    }
+
+    public void runGame(View v){
+
+        ConstraintLayout howToScreen = (ConstraintLayout)findViewById(R.id.howToScreen);
+        howToScreen.setVisibility(View.GONE);
+
+        setRandItem(mControlsView);
+        //calculateTime(mControlsView);
+
+        timer= (TextView) findViewById(R.id.timer);
+
+        new CountDownTimer(counter * 1000, 1000){
+            public void onTick(long millisUntilFinished){
+                if (running) {
+                    timer.setText("Time Left: " + String.valueOf(counter));
+                    counter--;
+                }
+            }
+            public  void onFinish(){
+                timer.setText("WIN!!");
+                gameEnd(true);
+            }
+        }.start();
+    }
+
+    public void returnToHome(View v){
+
+        finish();
+
+    }
+
+
+
 }
