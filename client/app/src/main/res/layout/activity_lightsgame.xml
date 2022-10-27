@@ -64,12 +64,12 @@
 
     <Button
         android:id="@+id/botLampB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="78dp"
+        android:layout_height="64dp"
         android:alpha="0"
         android:onClick="botLampB_onClick"
         android:text="But"
-        android:translationX="300dp"
+        android:translationX="305dp"
         android:translationY="520dp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-1dp" />
@@ -187,6 +187,26 @@
         android:text="Button"
         android:translationX="47dp"
         android:translationY="620dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/lights_game_tv"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <Button
+        android:id="@+id/tvB"
+        android:layout_width="117dp"
+        android:layout_height="76dp"
+        android:alpha="0"
+        android:onClick="tvB_onClick"
+        android:text="Button"
+        android:translationX="128dp"
+        android:translationY="522dp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 

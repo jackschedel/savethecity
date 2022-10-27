@@ -144,8 +144,9 @@ public class LightsgameActivity extends AppCompatActivity {
         lightsI[4] = (ImageView)findViewById(R.id.upstairs);
         lightsI[5] = (ImageView)findViewById(R.id.downstairs);
         lightsI[6] = (ImageView)findViewById(R.id.smallLamp);
+        lightsI[7] = (ImageView)findViewById(R.id.tv);
 
-        for(int i = 0; i < 7; i++) {
+        for(int i = 0; i < lightsI.length; i++) {
             if(lights[i]){
                 lightsI[i].setImageAlpha(255);
             } else{
@@ -305,6 +306,17 @@ public class LightsgameActivity extends AppCompatActivity {
             //If light was off, turn on
             lightsI[6].setImageAlpha(255);
             lights[6] = true;
+        }
+    }
+    public void tvB_onClick(View v){
+        if(lights[7]){
+            //If light was on, turn off
+            lightsI[7].setImageAlpha(0);
+            lights[7] = false;
+        }else {
+            //If light was off, turn on
+            lightsI[7].setImageAlpha(255);
+            lights[7] = true;
         }
     }
 
