@@ -414,7 +414,8 @@ public class RecyclegameActivity extends AppCompatActivity {
 
     public void returnToHome(View v){
 
-        finish();
+        Intent intent = new Intent(RecyclegameActivity.this, MainActivity.class);
+        startActivity(intent);
 
     }
     public void nextGame(View v){

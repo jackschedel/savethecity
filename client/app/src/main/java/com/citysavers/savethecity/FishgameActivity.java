@@ -506,6 +506,10 @@ public class FishgameActivity extends AppCompatActivity {
         onFishGrab();
     }
 
+    public void fishButton7_onClick(View v){
+        onFishGrab();
+    }
+
     public void trashButton1_onClick(View v) {
         ImageButton trashButton1 = (ImageButton)findViewById(R.id.trashButton1);
 
@@ -581,7 +585,8 @@ public class FishgameActivity extends AppCompatActivity {
 
     public void returnToHome(View v){
 
-        finish();
+        Intent intent = new Intent(FishgameActivity.this, MainActivity.class);
+        startActivity(intent);
 
     }
     public void nextGame(View v){

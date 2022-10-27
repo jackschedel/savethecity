@@ -9,6 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import java.util.Random;
 
 import android.content.Intent;
+import android.hardware.lights.Light;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -404,7 +405,8 @@ public class LightsgameActivity extends AppCompatActivity {
 
     public void returnToHome(View v){
 
-        finish();
+        Intent intent = new Intent(LightsgameActivity.this, MainActivity.class);
+        startActivity(intent);
 
     }
 
