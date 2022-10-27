@@ -64,7 +64,7 @@ public class LightsgameActivity extends AppCompatActivity {
     public int oth = 0;
     public boolean win = true;
     public ProgressBar progressBar;
-    public int progress = 20000;
+    public int progress = 200;
     public Random rand = new Random();
 
     private final Runnable mHidePart2Runnable = new Runnable() {
@@ -356,12 +356,12 @@ public class LightsgameActivity extends AppCompatActivity {
     }
     public void gameStart(View v){
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        progressBar.setMax(counter*1000);
+        progressBar.setMax(counter*10);
         new CountDownTimer(counter*1000, 100){
             int iterations  = 0;
             public void onTick(long millisUntilFinished){
                 progressBar.setProgress(progress);
-                progress -= 100;
+                progress -= 1;
                 if(iterations % 10 == 0){
                     if(millisUntilFinished > 3000) {
                         int int_random = rand.nextInt(lights.length);
