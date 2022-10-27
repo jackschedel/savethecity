@@ -292,7 +292,7 @@
         android:id="@+id/howToScreen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -309,7 +309,7 @@
             android:layout_width="405dp"
             android:layout_height="400dp"
             android:layout_marginBottom="100dp"
-            android:text="Catch the fish! Leave the fish alone."
+            android:text="Catch the trash! Leave the fish alone."
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display3"
             android:textColor="#000000"
