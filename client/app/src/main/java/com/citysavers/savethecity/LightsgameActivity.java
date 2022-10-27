@@ -4,6 +4,11 @@ import android.annotation.SuppressLint;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -13,6 +18,9 @@ import android.os.Looper;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowInsets;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.citysavers.savethecity.databinding.ActivityLightsgameBinding;
@@ -48,7 +56,16 @@ public class LightsgameActivity extends AppCompatActivity {
 
     private boolean light1state = false;
     private boolean light2state = false;
-
+    private Boolean[] lights = new Boolean[8];
+    private ImageView[] lightsI = new ImageView[8];
+    private int speedFactor = 2000;
+    public int score = 0;
+    public int alt = 255;
+    public int oth = 0;
+    public boolean win = true;
+    public ProgressBar progressBar;
+    public int progress = 200;
+    public Random rand = new Random();
 
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
@@ -115,8 +132,7 @@ public class LightsgameActivity extends AppCompatActivity {
     };
     private ActivityLightsgameBinding binding;
 
-    public int counter = 10;
-    TextView timer;
+    public int counter = 20;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,18 +140,40 @@ public class LightsgameActivity extends AppCompatActivity {
 
         binding = ActivityLightsgameBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        timer= (TextView) findViewById(R.id.timer);
 
+        ((ImageView)findViewById(R.id.upFan1)).setImageAlpha(255);
+        ((ImageView)findViewById(R.id.upFan2)).setImageAlpha(0);
+        ((ImageView)findViewById(R.id.downFan1)).setImageAlpha(0);
+        ((ImageView)findViewById(R.id.downFan2)).setImageAlpha(255);
 
-        new CountDownTimer(10000, 1000){
-            public void onTick(long millisUntilFinished){
-                timer.setText(String.valueOf(counter));
-                counter--;
+        // Initializing the lights to be randomly on or off
+        int upperBound = 2;
+        int index = 0;
+        for(int i = 0; i < lights.length; i++) {
+            int int_random = rand.nextInt(upperBound);
+            if(int_random == 1 && index < 4) {
+                lights[i] = true;
+                index++;
+            } else {
+                lights[i] = false;
             }
-            public  void onFinish(){
-                timer.setText("FINISH!!");
+        }
+        lightsI[0] = (ImageView)findViewById(R.id.upLamp);
+        lightsI[1] = (ImageView)findViewById(R.id.botLamp);
+        lightsI[2] = (ImageView)findViewById(R.id.comp);
+        lightsI[3] = (ImageView)findViewById(R.id.phone);
+        lightsI[4] = (ImageView)findViewById(R.id.upstairs);
+        lightsI[5] = (ImageView)findViewById(R.id.downstairs);
+        lightsI[6] = (ImageView)findViewById(R.id.smallLamp);
+        lightsI[7] = (ImageView)findViewById(R.id.tv);
+
+        for(int i = 0; i < lightsI.length; i++) {
+            if(lights[i]){
+                lightsI[i].setImageAlpha(255);
+            } else{
+                lightsI[i].setImageAlpha(0);
             }
-        }.start();
+        }
 
         mVisible = true;
         mControlsView = binding.fullscreenContentControls;
@@ -151,6 +189,7 @@ public class LightsgameActivity extends AppCompatActivity {
         // created, to briefly hint to the user that UI controls
         // are available.
         delayedHide(0);
+
     }
 
     private void toggle() {
@@ -200,25 +239,183 @@ public class LightsgameActivity extends AppCompatActivity {
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
 
-    public void light1_onClick(View v){
-        TextView tv = (TextView)findViewById(R.id.textView);
-        if(light1state){
-            tv.setText("Light 1: Off");
-            light1state = false;
+
+    public void upLampB_onClick(View v){
+        if(lights[0]){
+            //If light was on, turn off
+            lightsI[0].setImageAlpha(0);
+            lights[0] = false;
         }else {
-            tv.setText("Light 1: On");
-            light1state = true;
+            //If light was off, turn on
+            lightsI[0].setImageAlpha(255);
+            lights[0] = true;
         }
     }
-    public void light2_onClick(View v){
-        TextView tv = (TextView)findViewById(R.id.textView2);
-        if(light2state){
-            tv.setText("Light 2: Off");
-            light2state = false;
+    public void botLampB_onClick(View v){
+        if(lights[1]){
+            //If light was on, turn off
+            lightsI[1].setImageAlpha(0);
+            lights[1] = false;
         }else {
-            tv.setText("Light 2: On");
-            light2state = true;
+            //If light was off, turn on
+            lightsI[1].setImageAlpha(255);
+            lights[1] = true;
         }
     }
+    public void compB_onClick(View v){
+        if(lights[2]){
+            //If light was on, turn off
+            lightsI[2].setImageAlpha(0);
+            lights[2] = false;
+        }else {
+            //If light was off, turn on
+            lightsI[2].setImageAlpha(255);
+            lights[2] = true;
+        }
+    }
+    public void phoneB_onClick(View v){
+        if(lights[3]){
+            //If light was on, turn off
+            lightsI[3].setImageAlpha(0);
+            lights[3] = false;
+        }else {
+            //If light was off, turn on
+            lightsI[3].setImageAlpha(255);
+            lights[3] = true;
+        }
+    }
+    public void upstairsB_onClick(View v){
+        if(lights[4]){
+            //If light was on, turn off
+            lightsI[4].setImageAlpha(0);
+            lights[4] = false;
+        }else {
+            //If light was off, turn on
+            lightsI[4].setImageAlpha(255);
+            lights[4] = true;
+        }
+    }
+    public void downstairsB_onClick(View v){
+        if(lights[5]){
+            //If light was on, turn off
+            lightsI[5].setImageAlpha(0);
+            lights[5] = false;
+        }else {
+            //If light was off, turn on
+            lightsI[5].setImageAlpha(255);
+            lights[5] = true;
+        }
+    }
+    public void smallLampB_onClick(View v){
+        if(lights[6]){
+            //If light was on, turn off
+            lightsI[6].setImageAlpha(0);
+            lights[6] = false;
+        }else {
+            //If light was off, turn on
+            lightsI[6].setImageAlpha(255);
+            lights[6] = true;
+        }
+    }
+    public void tvB_onClick(View v){
+        if(lights[7]){
+            //If light was on, turn off
+            lightsI[7].setImageAlpha(0);
+            lights[7] = false;
+        }else {
+            //If light was off, turn on
+            lightsI[7].setImageAlpha(255);
+            lights[7] = true;
+        }
+    }
+//    private void setProgressValue(final int progress) {
+//
+//        // set the progress
+//        progressBar.setProgress(progress);
+//        // thread is used to change the progress value
+//        Thread thread = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    Thread.sleep(1000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//                setProgressValue(progress - 10);
+//            }
+//        });
+//        thread.start();
+//    }
+    private void onWin(){
+        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.winScreen);
+        winScreen.setVisibility(View.VISIBLE);
+    }
+
+
+    private void onLose(){
+        ConstraintLayout loseScreen = (ConstraintLayout)findViewById(R.id.loseScreen);
+        loseScreen.setVisibility(View.VISIBLE);
+    }
+    public void gameStart(View v){
+
+        ConstraintLayout howtoScreen = (ConstraintLayout)findViewById(R.id.howToScreen);
+        howtoScreen.setVisibility(View.GONE);
+
+
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setMax(counter*10);
+        new CountDownTimer(counter*1000, 100){
+            int iterations  = 0;
+            public void onTick(long millisUntilFinished){
+                progressBar.setProgress(progress);
+                progress -= 1;
+                if(iterations % 10 == 0){
+                    if(millisUntilFinished > 3000) {
+                        int int_random = rand.nextInt(lights.length);
+                        lights[int_random] = true;
+                        lightsI[int_random].setImageAlpha(255);
+                    }
+                }
+                if(alt == 255){
+                    alt = 0;
+                    oth = 255;
+                }else{
+                    alt = 255;
+                    oth = 0;
+                }
+                if(lights[4]) {
+                    ((ImageView) findViewById(R.id.upFan1)).setImageAlpha(alt);
+                    ((ImageView) findViewById(R.id.upFan2)).setImageAlpha(oth);
+                }
+                if(lights[5]) {
+                    ((ImageView) findViewById(R.id.downFan1)).setImageAlpha(oth);
+                    ((ImageView) findViewById(R.id.downFan2)).setImageAlpha(alt);
+                }
+
+                iterations++;
+            }
+            public void onFinish(){
+                for(int i = 0; i <lights.length; i++){
+                    if(lights[i]){
+                        win = false;
+                    }
+                }
+                if(win){
+                    onWin();
+                }else{
+                    onLose();
+                }
+            }
+        }.start();
+    }
+
+
+    public void returnToHome(View v){
+
+        finish();
+
+    }
+
 
 }
