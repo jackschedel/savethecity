@@ -123,9 +123,7 @@ public class LightsgameActivity extends AppCompatActivity {
     };
     private ActivityLightsgameBinding binding;
 
-
     public int counter = 20;
-    TextView timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -169,12 +167,9 @@ public class LightsgameActivity extends AppCompatActivity {
             }
         }
 
-        timer= (TextView) findViewById(R.id.timer);
 
         new CountDownTimer(counter*1000, 1000){
             public void onTick(long millisUntilFinished){
-                timer.setText(String.valueOf(counter));
-                counter--;
                 if(millisUntilFinished > 3000) {
                     int int_random = rand.nextInt(lights.length);
                     lights[int_random] = true;
@@ -182,7 +177,6 @@ public class LightsgameActivity extends AppCompatActivity {
                 }
             }
             public void onFinish(){
-                timer.setText("Time's Up!");
                 for(int i = 0; i <lights.length; i++){
                     if(lights[i]){
                         win = false;
