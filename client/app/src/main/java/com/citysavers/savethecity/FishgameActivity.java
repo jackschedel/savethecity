@@ -555,7 +555,7 @@ public class FishgameActivity extends AppCompatActivity {
 
     private void onTrashMiss(){
 
-        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.trashLoseScreen);
+        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.loseScreen);
         winScreen.setVisibility(View.VISIBLE);
     }
 

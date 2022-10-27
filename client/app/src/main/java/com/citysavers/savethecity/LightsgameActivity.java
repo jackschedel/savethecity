@@ -190,8 +190,6 @@ public class LightsgameActivity extends AppCompatActivity {
         // are available.
         delayedHide(0);
 
-        gameStart(null);
-
     }
 
     private void toggle() {
@@ -349,12 +347,22 @@ public class LightsgameActivity extends AppCompatActivity {
 //        thread.start();
 //    }
     private void onWin(){
-
+        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.winScreen);
+        winScreen.setVisibility(View.VISIBLE);
     }
-    private void onLose(){
 
+
+    private void onLose(){
+        ConstraintLayout loseScreen = (ConstraintLayout)findViewById(R.id.loseScreen);
+        loseScreen.setVisibility(View.VISIBLE);
     }
     public void gameStart(View v){
+
+        ConstraintLayout howtoScreen = (ConstraintLayout)findViewById(R.id.howToScreen);
+        howtoScreen.setVisibility(View.GONE);
+
+
+
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setMax(counter*10);
         new CountDownTimer(counter*1000, 100){
@@ -401,4 +409,13 @@ public class LightsgameActivity extends AppCompatActivity {
             }
         }.start();
     }
+
+
+    public void returnToHome(View v){
+
+        finish();
+
+    }
+
+
 }

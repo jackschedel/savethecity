@@ -232,7 +232,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/trashLoseScreen"
+        android:id="@+id/loseScreen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
