@@ -90,4 +90,104 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 
+    <ImageView
+        android:id="@+id/comp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/lights_game_comp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <Button
+        android:id="@+id/compB"
+        android:layout_width="53dp"
+        android:layout_height="47dp"
+        android:alpha="0"
+        android:onClick="compB_onClick"
+        android:text="Button"
+        android:translationX="175dp"
+        android:translationY="235dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
+        android:id="@+id/phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/lights_game_phone"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <Button
+        android:id="@+id/phoneB"
+        android:layout_width="33dp"
+        android:layout_height="34dp"
+        android:alpha="0"
+        android:onClick="phoneB_onClick"
+        android:text="Button"
+        android:translationX="316dp"
+        android:translationY="310dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
+        android:id="@+id/upstairs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/lights_game_upper_cceiling"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <Button
+        android:id="@+id/upstairsB"
+        android:layout_width="61dp"
+        android:layout_height="46dp"
+        android:alpha="0"
+        android:onClick="upstairsB_onClick"
+        android:text="Button"
+        android:translationX="177dp"
+        android:translationY="100dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
+        android:id="@+id/downstairs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/lights_game_lower_ceiling"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <Button
+        android:id="@+id/downstairsB"
+        android:layout_width="61dp"
+        android:layout_height="40dp"
+        android:alpha="0"
+        android:onClick="downstairsB_onClick"
+        android:text="Button"
+        android:translationX="170dp"
+        android:translationY="460dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
+        android:id="@+id/smallLamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/lights_game_small_lower_lamp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <Button
+        android:id="@+id/smallLampB"
+        android:layout_width="52dp"
+        android:layout_height="79dp"
+        android:alpha="0"
+        android:onClick="smallLampB_onClick"
+        android:text="Button"
+        android:translationX="47dp"
+        android:translationY="620dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

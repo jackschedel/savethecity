@@ -48,6 +48,7 @@ public class LightsgameActivity extends AppCompatActivity {
     private boolean light1state = false;
     private boolean light2state = false;
     private Boolean[] lights = new Boolean[8];
+    private ImageView[] lightsI = new ImageView[8];
 
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
@@ -114,9 +115,9 @@ public class LightsgameActivity extends AppCompatActivity {
     };
     private ActivityLightsgameBinding binding;
 
+
     public int counter = 20;
     TextView timer;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,7 +128,7 @@ public class LightsgameActivity extends AppCompatActivity {
 
         // Initializing the lights to be randomly on or off
         Random rand = new Random();
-        int upperBound = 1;
+        int upperBound = 2;
         for(int i = 0; i < lights.length; i++) {
             int int_random = rand.nextInt(upperBound);
             if(int_random == 0) {
@@ -136,9 +137,23 @@ public class LightsgameActivity extends AppCompatActivity {
                 lights[i] = true;
             }
         }
+        lightsI[0] = (ImageView)findViewById(R.id.upLamp);
+        lightsI[1] = (ImageView)findViewById(R.id.botLamp);
+        lightsI[2] = (ImageView)findViewById(R.id.comp);
+        lightsI[3] = (ImageView)findViewById(R.id.phone);
+        lightsI[4] = (ImageView)findViewById(R.id.upstairs);
+        lightsI[5] = (ImageView)findViewById(R.id.downstairs);
+        lightsI[6] = (ImageView)findViewById(R.id.smallLamp);
+
+        for(int i = 0; i < 7; i++) {
+            if(lights[i]){
+                lightsI[i].setImageAlpha(255);
+            } else{
+                lightsI[i].setImageAlpha(0);
+            }
+        }
 
         timer= (TextView) findViewById(R.id.timer);
-
 
         new CountDownTimer(20000, 1000){
             public void onTick(long millisUntilFinished){
@@ -216,27 +231,80 @@ public class LightsgameActivity extends AppCompatActivity {
     }
 
     public void upLampB_onClick(View v){
-        ImageView upLamp = (ImageView)findViewById(R.id.upLamp);
         if(lights[0]){
             //If light was on, turn off
-            upLamp.setImageAlpha(0);
+            lightsI[0].setImageAlpha(0);
             lights[0] = false;
         }else {
             //If light was off, turn on
-            upLamp.setImageAlpha(255);
+            lightsI[0].setImageAlpha(255);
             lights[0] = true;
         }
     }
     public void botLampB_onClick(View v){
-        ImageView botLamp = (ImageView)findViewById(R.id.botLamp);
         if(lights[1]){
             //If light was on, turn off
-            botLamp.setImageAlpha(0);
+            lightsI[1].setImageAlpha(0);
             lights[1] = false;
         }else {
             //If light was off, turn on
-            botLamp.setImageAlpha(255);
+            lightsI[1].setImageAlpha(255);
             lights[1] = true;
+        }
+    }
+    public void compB_onClick(View v){
+        if(lights[2]){
+            //If light was on, turn off
+            lightsI[2].setImageAlpha(0);
+            lights[2] = false;
+        }else {
+            //If light was off, turn on
+            lightsI[2].setImageAlpha(255);
+            lights[2] = true;
+        }
+    }
+    public void phoneB_onClick(View v){
+        if(lights[3]){
+            //If light was on, turn off
+            lightsI[3].setImageAlpha(0);
+            lights[3] = false;
+        }else {
+            //If light was off, turn on
+            lightsI[3].setImageAlpha(255);
+            lights[3] = true;
+        }
+    }
+    public void upstairsB_onClick(View v){
+        if(lights[4]){
+            //If light was on, turn off
+            lightsI[4].setImageAlpha(0);
+            lights[4] = false;
+        }else {
+            //If light was off, turn on
+            lightsI[4].setImageAlpha(255);
+            lights[4] = true;
+        }
+    }
+    public void downstairsB_onClick(View v){
+        if(lights[5]){
+            //If light was on, turn off
+            lightsI[5].setImageAlpha(0);
+            lights[5] = false;
+        }else {
+            //If light was off, turn on
+            lightsI[5].setImageAlpha(255);
+            lights[5] = true;
+        }
+    }
+    public void smallLampB_onClick(View v){
+        if(lights[6]){
+            //If light was on, turn off
+            lightsI[6].setImageAlpha(0);
+            lights[6] = false;
+        }else {
+            //If light was off, turn on
+            lightsI[6].setImageAlpha(255);
+            lights[6] = true;
         }
     }
 
