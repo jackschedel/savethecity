@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.Random;
 import java.util.Timer;
@@ -19,6 +20,7 @@ import android.view.View;
 import android.view.WindowInsets;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.citysavers.savethecity.databinding.ActivityLightsgameBinding;
@@ -61,6 +63,9 @@ public class LightsgameActivity extends AppCompatActivity {
     public int alt = 255;
     public int oth = 0;
     public boolean win = true;
+    public ProgressBar progressBar;
+    public int progress = 100;
+    public Random rand = new Random();
 
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
@@ -142,7 +147,6 @@ public class LightsgameActivity extends AppCompatActivity {
         ((ImageView)findViewById(R.id.downFan2)).setImageAlpha(255);
 
         // Initializing the lights to be randomly on or off
-        Random rand = new Random();
         int upperBound = 2;
         int index = 0;
         for(int i = 0; i < lights.length; i++) {
@@ -171,29 +175,6 @@ public class LightsgameActivity extends AppCompatActivity {
             }
         }
 
-
-        new CountDownTimer(counter*1000, 1000){
-            public void onTick(long millisUntilFinished){
-                if(millisUntilFinished > 3000) {
-                    int int_random = rand.nextInt(lights.length);
-                    lights[int_random] = true;
-                    lightsI[int_random].setImageAlpha(255);
-                }
-            }
-            public void onFinish(){
-                for(int i = 0; i <lights.length; i++){
-                    if(lights[i]){
-                        win = false;
-                    }
-                }
-                if(win){
-                    onWin();
-                }else{
-                    onLose();
-                }
-            }
-        }.start();
-
         mVisible = true;
         mControlsView = binding.fullscreenContentControls;
         mContentView = binding.fullscreenContent;
@@ -209,28 +190,7 @@ public class LightsgameActivity extends AppCompatActivity {
         // are available.
         delayedHide(0);
 
-        Random rand = new Random();
-        new CountDownTimer(counter*1000, 100){
-            public void onTick(long millisUntilFinished){
-                if(alt == 255){
-                    alt = 0;
-                    oth = 255;
-                }else{
-                    alt = 255;
-                    oth = 0;
-                }
-                if(lights[4]) {
-                    ((ImageView) findViewById(R.id.upFan1)).setImageAlpha(alt);
-                    ((ImageView) findViewById(R.id.upFan2)).setImageAlpha(oth);
-                }
-                if(lights[5]) {
-                    ((ImageView) findViewById(R.id.downFan1)).setImageAlpha(oth);
-                    ((ImageView) findViewById(R.id.downFan2)).setImageAlpha(alt);
-                }
-            }
-            public void onFinish(){
-            }
-        }.start();
+        gameStart(null);
 
     }
 
@@ -280,12 +240,7 @@ public class LightsgameActivity extends AppCompatActivity {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
-    private void onWin(){
 
-    }
-    private void onLose(){
-
-    }
 
     public void upLampB_onClick(View v){
         if(lights[0]){
@@ -375,5 +330,77 @@ public class LightsgameActivity extends AppCompatActivity {
             lights[7] = true;
         }
     }
+    private void setProgressValue(final int progress) {
 
+        // set the progress
+        progressBar.setProgress(progress);
+        // thread is used to change the progress value
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                setProgressValue(progress + 10);
+            }
+        });
+        thread.start();
+    }
+    private void onWin(){
+
+    }
+    private void onLose(){
+
+    }
+    public void gameStart(View v){
+
+        ConstraintLayout tipsScreen = (ConstraintLayout)findViewById(R.id.howToScreen);
+        tipsScreen.setVisibility(View.GONE);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
+        new CountDownTimer(counter*1000, 100){
+            int iterations  = 0;
+            public void onTick(long millisUntilFinished){
+                if(iterations % 10 == 0){
+                    setProgressValue(progress);
+                    if(millisUntilFinished > 3000) {
+                        int int_random = rand.nextInt(lights.length);
+                        lights[int_random] = true;
+                        lightsI[int_random].setImageAlpha(255);
+                    }
+                }
+                if(alt == 255){
+                    alt = 0;
+                    oth = 255;
+                }else{
+                    alt = 255;
+                    oth = 0;
+                }
+                if(lights[4]) {
+                    ((ImageView) findViewById(R.id.upFan1)).setImageAlpha(alt);
+                    ((ImageView) findViewById(R.id.upFan2)).setImageAlpha(oth);
+                }
+                if(lights[5]) {
+                    ((ImageView) findViewById(R.id.downFan1)).setImageAlpha(oth);
+                    ((ImageView) findViewById(R.id.downFan2)).setImageAlpha(alt);
+                }
+
+                iterations++;
+            }
+            public void onFinish(){
+                for(int i = 0; i <lights.length; i++){
+                    if(lights[i]){
+                        win = false;
+                    }
+                }
+                if(win){
+                    onWin();
+                }else{
+                    onLose();
+                }
+            }
+        }.start();
+    }
 }
