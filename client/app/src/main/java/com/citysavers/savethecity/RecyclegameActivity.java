@@ -116,7 +116,9 @@ public class RecyclegameActivity extends AppCompatActivity {
     };
     private ActivityRecyclegameBinding binding;
 
-    public int counter = 10;
+    double difficulty = 0.5;
+
+    public int counter = (int) (5 + 40 * (1 - difficulty));
     TextView timer;
     public boolean running;
 
@@ -240,6 +242,10 @@ public class RecyclegameActivity extends AppCompatActivity {
             TextView score = findViewById(R.id.score);
             int numScore = Integer.parseInt(score.getText().toString());
             numScore++;
+
+            if(numScore >= 8)
+                gameEnd(true);
+
             score.setText(Integer.toString(numScore));
         } else {
             //incorrect sort
@@ -256,6 +262,10 @@ public class RecyclegameActivity extends AppCompatActivity {
             TextView score = (TextView) findViewById(R.id.score);
             int numScore = Integer.parseInt(score.getText().toString());
             numScore++;
+
+            if(numScore >= 8)
+                gameEnd(true);
+
             score.setText(Integer.toString(numScore));
 
         } else {
@@ -273,6 +283,10 @@ public class RecyclegameActivity extends AppCompatActivity {
             TextView score = (TextView) findViewById(R.id.score);
             int numScore = Integer.parseInt(score.getText().toString());
             numScore++;
+
+            if(numScore >= 8)
+                gameEnd(true);
+
             score.setText(Integer.toString(numScore));
         } else {
             //incorrect sort
@@ -289,6 +303,11 @@ public class RecyclegameActivity extends AppCompatActivity {
             TextView score = (TextView) findViewById(R.id.score);
             int numScore = Integer.parseInt(score.getText().toString());
             numScore++;
+
+            if(numScore >= 8)
+                gameEnd(true);
+
+
             score.setText(Integer.toString(numScore));
         } else {
             //incorrect sort
@@ -305,6 +324,11 @@ public class RecyclegameActivity extends AppCompatActivity {
             TextView score = (TextView) findViewById(R.id.score);
             int numScore = Integer.parseInt(score.getText().toString());
             numScore++;
+
+            if(numScore >= 8)
+                gameEnd(true);
+
+
             score.setText(Integer.toString(numScore));
         } else {
             //incorrect sort
@@ -312,6 +336,27 @@ public class RecyclegameActivity extends AppCompatActivity {
         }
 
             setRandItem(v);
+    }
+
+    public void gameEndOutOfTime(){
+
+        Button g = findViewById(R.id.glass);
+        Button o = findViewById(R.id.organic);
+        Button pa = findViewById(R.id.paper);
+        Button pl = findViewById(R.id.plastic);
+        Button f = findViewById(R.id.furnace);
+        g.setEnabled(false);
+        o.setEnabled(false);
+        pa.setEnabled(false);
+        pl.setEnabled(false);
+        f.setEnabled(false);
+
+        running = false;
+
+
+        ConstraintLayout timeloseScreen = (ConstraintLayout)findViewById(R.id.loseScreenTime);
+        timeloseScreen.setVisibility(View.VISIBLE);
+
     }
 
     public void gameEnd(Boolean win){
@@ -363,8 +408,8 @@ public class RecyclegameActivity extends AppCompatActivity {
                 }
             }
             public  void onFinish(){
-                timer.setText("WIN!!");
-                gameEnd(true);
+
+                gameEndOutOfTime();
             }
         }.start();
     }
