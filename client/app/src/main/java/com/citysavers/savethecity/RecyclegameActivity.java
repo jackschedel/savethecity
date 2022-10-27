@@ -8,7 +8,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.hardware.lights.Light;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -417,11 +416,6 @@ public class RecyclegameActivity extends AppCompatActivity {
         finish();
 
     }
-    public void nextGame(View v){
-        Intent intent = new Intent(RecyclegameActivity.this, LightsgameActivity.class);
-        startActivity(intent);
-    }
-
 
 
 

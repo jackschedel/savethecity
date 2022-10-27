@@ -10,7 +10,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -571,10 +570,6 @@ public class FishgameActivity extends AppCompatActivity {
 
         finish();
 
-    }
-    public void nextGame(View v){
-        Intent intent = new Intent(FishgameActivity.this, RecyclegameActivity.class);
-        startActivity(intent);
     }
 
     public void runGame(View v){
