@@ -9,7 +9,7 @@ USE savethecity;
 
 
 CREATE TABLE accounts(
-    device_hash CHAR(60) NOT NULL PRIMARY KEY,
+    id CHAR(60) NOT NULL PRIMARY KEY,
 	lights_wins INT UNSIGNED NOT NULL DEFAULT 1,
 	lights_losses INT UNSIGNED NOT NULL DEFAULT 1,
 	lights_meter FLOAT UNSIGNED NOT NULL DEFAULT 0,
@@ -29,7 +29,8 @@ CREATE TABLE accounts(
 
 
 CREATE TABLE game_records(
-
+	FOREIGN KEY (account_id) REFERENCES accounts(id),
+	
 );
 
 
