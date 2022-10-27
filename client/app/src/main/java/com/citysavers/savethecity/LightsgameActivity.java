@@ -6,6 +6,9 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -49,6 +52,10 @@ public class LightsgameActivity extends AppCompatActivity {
     private boolean light2state = false;
     private Boolean[] lights = new Boolean[8];
     private ImageView[] lightsI = new ImageView[8];
+    private int speedFactor = 2000;
+    public int score = 0;
+    public int alt = 255;
+    public int oth = 0;
 
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
@@ -126,15 +133,22 @@ public class LightsgameActivity extends AppCompatActivity {
         binding = ActivityLightsgameBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        ((ImageView)findViewById(R.id.upFan1)).setImageAlpha(255);
+        ((ImageView)findViewById(R.id.upFan2)).setImageAlpha(0);
+        ((ImageView)findViewById(R.id.downFan1)).setImageAlpha(0);
+        ((ImageView)findViewById(R.id.downFan2)).setImageAlpha(255);
+
         // Initializing the lights to be randomly on or off
         Random rand = new Random();
         int upperBound = 2;
+        int index = 0;
         for(int i = 0; i < lights.length; i++) {
             int int_random = rand.nextInt(upperBound);
-            if(int_random == 0) {
-                lights[i] = false;
-            } else {
+            if(int_random == 1 && index < 4) {
                 lights[i] = true;
+                index++;
+            } else {
+                lights[i] = false;
             }
         }
         lightsI[0] = (ImageView)findViewById(R.id.upLamp);
@@ -156,13 +170,19 @@ public class LightsgameActivity extends AppCompatActivity {
 
         timer= (TextView) findViewById(R.id.timer);
 
-        new CountDownTimer(20000, 1000){
+        new CountDownTimer(counter*1000, 1000){
             public void onTick(long millisUntilFinished){
                 timer.setText(String.valueOf(counter));
                 counter--;
+                if(millisUntilFinished > 3000) {
+                    int int_random = rand.nextInt(lights.length);
+                    lights[int_random] = true;
+                    lightsI[int_random].setImageAlpha(255);
+                }
             }
-            public  void onFinish(){
-                timer.setText("FINISH!!");
+            public void onFinish(){
+                timer.setText("Time's Up!");
+                finish();
             }
         }.start();
 
@@ -181,6 +201,52 @@ public class LightsgameActivity extends AppCompatActivity {
         // are available.
         delayedHide(0);
 
+//        TextView test= (TextView) findViewById(R.id.test);
+//
+//        Timer timer = new Timer();
+//        timer.schedule(new TimerTask() {
+//            @Override
+//            public void run() {
+//                test.setText("Done");
+//                if(alt == 255){
+//                    alt = 0;
+//                    oth = 255;
+//                }else{
+//                    alt = 255;
+//                    oth = 0;
+//                }
+//                ((ImageView)findViewById(R.id.upFan1)).setImageAlpha(alt);
+//                ((ImageView)findViewById(R.id.upFan2)).setImageAlpha(oth);
+//                ((ImageView)findViewById(R.id.downFan1)).setImageAlpha(oth);
+//                ((ImageView)findViewById(R.id.downFan2)).setImageAlpha(alt);
+//            }
+//        }, 0, 500);//wait 0 ms before doing the action and do it every 500ms
+//
+//        timer.cancel();//stop the timer
+        Random rand = new Random();
+        TextView test= (TextView) findViewById(R.id.test);
+        new CountDownTimer(counter*1000, 100){
+            public void onTick(long millisUntilFinished){
+                test.setText("Done");
+                if(alt == 255){
+                    alt = 0;
+                    oth = 255;
+                }else{
+                    alt = 255;
+                    oth = 0;
+                }
+                if(lights[4]) {
+                    ((ImageView) findViewById(R.id.upFan1)).setImageAlpha(alt);
+                    ((ImageView) findViewById(R.id.upFan2)).setImageAlpha(oth);
+                }
+                if(lights[5]) {
+                    ((ImageView) findViewById(R.id.downFan1)).setImageAlpha(oth);
+                    ((ImageView) findViewById(R.id.downFan2)).setImageAlpha(alt);
+                }
+            }
+            public void onFinish(){
+            }
+        }.start();
 
     }
 

@@ -140,13 +140,13 @@
 
     <Button
         android:id="@+id/upstairsB"
-        android:layout_width="61dp"
-        android:layout_height="46dp"
+        android:layout_width="135dp"
+        android:layout_height="70dp"
         android:alpha="0"
         android:onClick="upstairsB_onClick"
         android:text="Button"
-        android:translationX="177dp"
-        android:translationY="100dp"
+        android:translationX="140dp"
+        android:translationY="85dp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 
@@ -160,14 +160,14 @@
 
     <Button
         android:id="@+id/downstairsB"
-        android:layout_width="61dp"
-        android:layout_height="40dp"
+        android:layout_width="127dp"
+        android:layout_height="69dp"
         android:alpha="0"
         android:onClick="downstairsB_onClick"
         android:text="Button"
-        android:translationX="170dp"
-        android:translationY="460dp"
-        tools:layout_editor_absoluteX="0dp"
+        android:translationX="137dp"
+        android:translationY="443dp"
+        tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="0dp" />
 
     <ImageView
@@ -207,6 +207,48 @@
         android:text="Button"
         android:translationX="128dp"
         android:translationY="522dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
+        android:id="@+id/upFan1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/lights_game_upper_fan1"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
+        android:id="@+id/upFan2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/lights_game_upper_fan2"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
+        android:id="@+id/downFan1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/lights_game_lower_fan1"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
+        android:id="@+id/downFan2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/lights_game_lower_fan2"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <TextView
+        android:id="@+id/test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:translationX="100dp"
+        android:translationY="150dp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 
