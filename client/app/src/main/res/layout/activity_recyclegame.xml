@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/recycle_game_bckgrd"
+    android:background="@drawable/recycle_newbckgrd"
     android:theme="@style/ThemeOverlay.Savethecity.FullscreenContainer"
     tools:context=".RecyclegameActivity">
 
@@ -38,14 +38,6 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/item"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/glass"
-            android:translationX="150dp"
-            android:translationY="250dp" />
-
-        <ImageView
             android:id="@+id/trash"
             android:layout_width="231dp"
             android:layout_height="327dp"
@@ -75,6 +67,16 @@
             android:translationX="35dp"
             android:translationY="410dp" />
 
+        <ImageView
+            android:id="@+id/convey"
+            android:layout_width="357dp"
+            android:layout_height="387dp"
+            android:rotation="-0.4"
+            android:scaleX="1.11"
+            android:src="@drawable/recycle_game_convey"
+            android:translationX="38dp"
+            android:translationY="120dp" />
+
         <Button
             android:id="@+id/paper"
             android:layout_width="183dp"
@@ -85,6 +87,15 @@
             android:text="paper"
             android:translationX="215dp"
             android:translationY="410dp" />
+
+        <ImageView
+            android:id="@+id/item"
+            android:tag=""
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/glass"
+            android:translationX="150dp"
+            android:translationY="250dp" />
 
         <Button
             android:id="@+id/organic"
@@ -123,12 +134,10 @@
             android:id="@+id/score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scaleX="3"
-            android:scaleY="3"
-            android:text="Time Left: "
+            android:text="0"
             android:textColor="@color/white"
             android:translationX="180dp"
-            android:translationY="100dp" />
+            android:translationY="200dp" />
     </FrameLayout>
 
 </FrameLayout>

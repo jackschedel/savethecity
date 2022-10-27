@@ -115,11 +115,13 @@ public class RecyclegameActivity extends AppCompatActivity {
     };
     private ActivityRecyclegameBinding binding;
 
-    public int counter = 9;
+    public int counter = 30;
     TextView timer;
+    public boolean running;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        running = true;
         super.onCreate(savedInstanceState);
 
         binding = ActivityRecyclegameBinding.inflate(getLayoutInflater());
@@ -133,23 +135,16 @@ public class RecyclegameActivity extends AppCompatActivity {
 
         timer= (TextView) findViewById(R.id.timer);
 
-        new CountDownTimer(9000, 1000){
+        new CountDownTimer(counter * 1000, 1000){
             public void onTick(long millisUntilFinished){
-                timer.setText("Time Left: " + String.valueOf(counter));
-                counter--;
+                if (running) {
+                    timer.setText("Time Left: " + String.valueOf(counter));
+                    counter--;
+                }
             }
             public  void onFinish(){
-                timer.setText("FINISH!!");
-                Button g = findViewById(R.id.glass);
-                Button o = findViewById(R.id.organic);
-                Button pa = findViewById(R.id.paper);
-                Button pl = findViewById(R.id.plastic);
-                Button f = findViewById(R.id.furnace);
-                g.setEnabled(false);
-                o.setEnabled(false);
-                pa.setEnabled(false);
-                pl.setEnabled(false);
-                f.setEnabled(false);
+                timer.setText("WIN!!");
+                gameEnd(true);
             }
         }.start();
     }
@@ -246,84 +241,112 @@ public class RecyclegameActivity extends AppCompatActivity {
         int upperBound = 15;
         int int_random = rand.nextInt(upperBound);
 
-        System.out.println(itemArray[int_random]);
-
         ImageView item = findViewById(R.id.item);
         int imageResource = getResources().getIdentifier(itemArray[int_random], null, getPackageName());
         Drawable res = getResources().getDrawable(imageResource);
         item.setImageDrawable(res);
+        item.setTag(Integer.toString(int_random));
     }
 
     public void glassBin_onClick(View v){
         ImageView item = findViewById(R.id.item);
-        Button bin = findViewById(R.id.glass);
-        if (item.getDrawable() == Drawable.createFromPath("@drawable/glass") ||
-                item.getDrawable() == Drawable.createFromPath("@drawable/glassbottle") ||
-                item.getDrawable() == Drawable.createFromPath("@drawable/jar")){
+        if (item.getTag().toString().equals("6") || item.getTag().toString().equals("7") || item.getTag().toString().equals("8")){
             //correct sort
-
-
+            TextView score = findViewById(R.id.score);
+            int numScore = Integer.parseInt(score.getText().toString());
+            numScore++;
+            score.setText(Integer.toString(numScore));
         } else {
             //incorrect sort
-
+            gameEnd(false);
         }
 
         setRandItem(v);
     }
     public void paperBin_onClick(View v){
         ImageView item = findViewById(R.id.item);
-        Button bin = findViewById(R.id.paper);
-        if (item.getDrawable() == Drawable.createFromPath("@drawable/paper") ||
-                item.getDrawable() == Drawable.createFromPath("@drawable/newspaper") ||
-                item.getDrawable() == Drawable.createFromPath("@drawable/box")){
+        if (item.getTag().toString().equals("3") || item.getTag().toString().equals("9") || item.getTag().toString().equals("10")){
+            System.out.println("correct");
             //correct sort
+            TextView score = (TextView) findViewById(R.id.score);
+            int numScore = Integer.parseInt(score.getText().toString());
+            numScore++;
+            score.setText(Integer.toString(numScore));
+
         } else {
             //incorrect sort
-
+            gameEnd(false);
         }
 
             setRandItem(v);
     }
     public void orgBin_onClick(View v){
         ImageView item = findViewById(R.id.item);
-        Button bin = findViewById(R.id.organic);
-        if (item.getDrawable() == Drawable.createFromPath("@drawable/apple") ||
-                item.getDrawable() == Drawable.createFromPath("@drawable/fishbones") ||
-                item.getDrawable() == Drawable.createFromPath("@drawable/banana")){
+        if (item.getTag().toString().equals("0") || item.getTag().toString().equals("1") || item.getTag().toString().equals("5")){
+            System.out.println("correct");
             //correct sort
+            TextView score = (TextView) findViewById(R.id.score);
+            int numScore = Integer.parseInt(score.getText().toString());
+            numScore++;
+            score.setText(Integer.toString(numScore));
         } else {
             //incorrect sort
-
+            gameEnd(false);
         }
 
             setRandItem(v);
     }
     public void plasticBin_onClick(View v){
         ImageView item = findViewById(R.id.item);
-        Button bin = findViewById(R.id.plastic);
-        if (item.getDrawable() == Drawable.createFromPath("@drawable/chips") ||
-                item.getDrawable() == Drawable.createFromPath("@drawable/bottle") ||
-                item.getDrawable() == Drawable.createFromPath("@drawable/plasticcontainer")){
+        if (item.getTag().toString().equals("2") || item.getTag().toString().equals("11") || item.getTag().toString().equals("4")){
+            System.out.println("correct");
             //correct sort
+            TextView score = (TextView) findViewById(R.id.score);
+            int numScore = Integer.parseInt(score.getText().toString());
+            numScore++;
+            score.setText(Integer.toString(numScore));
         } else {
             //incorrect sort
-
+            gameEnd(false);
         }
 
             setRandItem(v);
     }
     public void furnace_onClick(View v){
         ImageView item = findViewById(R.id.item);
-        Button bin = findViewById(R.id.furnace);
-        if (item.getDrawable() == Drawable.createFromPath("@drawable/toothbrush") ||
-                item.getDrawable() == Drawable.createFromPath("@drawable/shoe") ||
-                item.getDrawable() == Drawable.createFromPath("@drawable/trashbag")){
+        if (item.getTag().toString().equals("12") || item.getTag().toString().equals("13") || item.getTag().toString().equals("14")){
+            System.out.println("correct");
             //correct sort
+            TextView score = (TextView) findViewById(R.id.score);
+            int numScore = Integer.parseInt(score.getText().toString());
+            numScore++;
+            score.setText(Integer.toString(numScore));
         } else {
             //incorrect sort
-
+            gameEnd(false);
         }
 
             setRandItem(v);
+    }
+
+    public void gameEnd(Boolean win){
+        Button g = findViewById(R.id.glass);
+        Button o = findViewById(R.id.organic);
+        Button pa = findViewById(R.id.paper);
+        Button pl = findViewById(R.id.plastic);
+        Button f = findViewById(R.id.furnace);
+        g.setEnabled(false);
+        o.setEnabled(false);
+        pa.setEnabled(false);
+        pl.setEnabled(false);
+        f.setEnabled(false);
+
+        running = false;
+
+        if (win) {
+
+        } else {
+            timer.setText("Fail!!");
+        }
     }
 }
