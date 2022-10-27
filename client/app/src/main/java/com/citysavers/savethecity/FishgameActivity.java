@@ -138,10 +138,19 @@ public class FishgameActivity extends AppCompatActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
+        delayedHide(0);
+
+        ConstraintLayout howToScreen = (ConstraintLayout)findViewById(R.id.howToScreen);
+        howToScreen.setVisibility(View.VISIBLE);
+
+    }
+
+    public void rungameLoop() {
+
         // Trigger the initial hide() shortly after the activity has been
         // created, to briefly hint to the user that UI controls
         // are available.
-        delayedHide(0);
+        //delayedHide(0);
 
         //ImageButton trashButton1 = (ImageButton)findViewById(R.id.trashButton1);
 
@@ -560,6 +569,14 @@ public class FishgameActivity extends AppCompatActivity {
     public void returnToHome(View v){
 
         finish();
+
+    }
+
+    public void runGame(View v){
+
+        ConstraintLayout winScreen = (ConstraintLayout)findViewById(R.id.howToScreen);
+        winScreen.setVisibility(View.GONE);
+        rungameLoop();
 
     }
 
